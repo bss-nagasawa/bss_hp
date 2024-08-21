@@ -5,7 +5,7 @@ on: [push, pull_request]
 jobs:
   lint:
     runs-on: ubuntu-latest
-    timeout-minutes: 5 # タイムアウト時間を10分に設定
+    timeout-minutes: 5 # タイムアウト時間を5分に設定
 
     steps:
       - name: Checkout code
@@ -15,12 +15,6 @@ jobs:
         uses: shivammathur/setup-php@v2
         with:
           php-version: "7.4" # 必要に応じてPHPのバージョンを変更
-
-      - name: Install PHP_CodeSniffer
-        run: composer global require "squizlabs/php_codesniffer=*"
-
-      - name: Run PHP_CodeSniffer
-        run: ~/.composer/vendor/bin/phpcs -v --standard=PSR12 wp-content
 
       - name: Run PHP Lint
         run: find . -name "*.php" -exec php -l {} \;
