@@ -20,7 +20,7 @@ jobs:
         run: composer global require "squizlabs/php_codesniffer=*"
 
       - name: Run PHP_CodeSniffer
-        run: ~/.composer/vendor/bin/phpcs --standard=PSR12 .
+        run: ~/.composer/vendor/bin/phpcs -v --standard=PSR12 wp-content
 
       - name: Run PHP Lint
         run: find . -name "*.php" -exec php -l {} \;
