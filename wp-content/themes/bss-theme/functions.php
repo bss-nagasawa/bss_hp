@@ -3,89 +3,87 @@
 Author: BSS
 */
 
-// LOAD BONES CORE (if you remove this, the theme will break)
+// BONESコアを読み込む（これを削除するとテーマが壊れます）
 require_once('library/bones.php');
 
-// CUSTOMIZE THE WORDPRESS ADMIN (off by default)
+// WordPress管理画面のカスタマイズ（デフォルトではオフ）
 // require_once( 'library/admin.php' );
 
 /*********************
-LAUNCH BONES
-Let's get everything up and running.
+BONESの起動
+すべてを起動して実行します。
  *********************/
 
 function bones_ahoy()
 {
 
-  //Allow editor style.
+  // エディタースタイルを許可
   add_editor_style(get_stylesheet_directory_uri() . '/library/css/editor-style.css');
 
-  // let's get language support going, if you need it
+  // 言語サポートを開始
   load_theme_textdomain('bonestheme', get_template_directory() . '/library/translation');
 
-  // launching operation cleanup
+  // クリーンアップ操作の開始
   add_action('init', 'bones_head_cleanup');
-  // A better title
+  // より良いタイトル
   add_filter('wp_title', 'rw_title', 10, 3);
-  // remove WP version from RSS
+  // RSSからWPバージョンを削除
   add_filter('the_generator', 'bones_rss_version');
-  // remove pesky injected css for recent comments widget
+  // 最近のコメントウィジェットのための注入されたCSSを削除
   add_filter('wp_head', 'bones_remove_wp_widget_recent_comments_style', 1);
-  // clean up comment styles in the head
+  // ヘッド内のコメントスタイルをクリーンアップ
   add_action('wp_head', 'bones_remove_recent_comments_style', 1);
-  // clean up gallery output in wp
+  // WPのギャラリー出力をクリーンアップ
   add_filter('gallery_style', 'bones_gallery_style');
 
-  // enqueue base scripts and styles
+  // 基本スクリプトとスタイルをエンキュー
   add_action('wp_enqueue_scripts', 'bones_scripts_and_styles', 999);
-  // ie conditional wrapper
+  // IE条件付きラッパー
 
-  // launching this stuff after theme setup
+  // テーマセットアップ後にこれらを起動
   bones_theme_support();
 
-  // adding sidebars to Wordpress (these are created in functions.php)
+  // WordPressにサイドバーを追加（これらはfunctions.phpで作成されます）
   add_action('widgets_init', 'bones_register_sidebars');
 
-  // cleaning up random code around images
+  // 画像周りのランダムなコードをクリーンアップ
   add_filter('the_content', 'bones_filter_ptags_on_images');
-  // cleaning up excerpt
+  // 抜粋をクリーンアップ
   add_filter('excerpt_more', 'bones_excerpt_more');
-} /* end bones ahoy */
+} /* bones ahoyの終了 */
 
-// let's get this party started
+// パーティーを始めましょう
 add_action('after_setup_theme', 'bones_ahoy');
 
 
-/************* OEMBED SIZE OPTIONS *************/
+/************* OEMBEDサイズオプション *************/
 
 if (! isset($content_width)) {
   $content_width = 680;
 }
 
-/************* THUMBNAIL SIZE OPTIONS *************/
+/************* サムネイルサイズオプション *************/
 
-// Thumbnail sizes
+// サムネイルサイズ
 add_image_size('bones-thumb-600', 600, 150, true);
 add_image_size('bones-thumb-300', 300, 100, true);
 
 /*
-to add more sizes, simply copy a line from above
-and change the dimensions & name. As long as you
-upload a "featured image" as large as the biggest
-set width or height, all the other sizes will be
-auto-cropped.
+サイズを追加するには、上記の行をコピーして
+寸法と名前を変更します。最大の設定幅または高さと同じくらい大きな
+「フィーチャー画像」をアップロードすれば、他のすべてのサイズが
+自動的にクロップされます。
 
-To call a different size, simply change the text
-inside the thumbnail function.
+異なるサイズを呼び出すには、サムネイル関数内のテキストを
+変更するだけです。
 
-For example, to call the 300 x 100 sized image,
-we would use the function:
+例えば、300 x 100サイズの画像を呼び出すには、
+次の関数を使用します：
 <?php the_post_thumbnail( 'bones-thumb-300' ); ?>
-for the 600 x 150 image:
+600 x 150画像の場合：
 <?php the_post_thumbnail( 'bones-thumb-600' ); ?>
 
-You can change the names and dimensions to whatever
-you like. Enjoy!
+名前と寸法を好きなように変更できます。お楽しみください！
 */
 
 add_filter('image_size_names_choose', 'bones_custom_image_sizes');
@@ -98,13 +96,13 @@ function bones_custom_image_sizes($sizes)
   ));
 }
 
-/************* THEME CUSTOMIZE *********************/
+/************* テーマカスタマイズ *********************/
 
 function bones_theme_customizer($wp_customize)
 {
-  // $wp_customize calls go here.
+  // $wp_customize呼び出しはここに行きます。
   //
-  // Uncomment the below lines to remove the default customize sections
+  // デフォルトのカスタマイズセクションを削除するには、以下の行をコメント解除します
 
   // $wp_customize->remove_section('title_tagline');
   // $wp_customize->remove_section('colors');
@@ -112,25 +110,25 @@ function bones_theme_customizer($wp_customize)
   // $wp_customize->remove_section('static_front_page');
   // $wp_customize->remove_section('nav');
 
-  // Uncomment the below lines to remove the default controls
+  // デフォルトのコントロールを削除するには、以下の行をコメント解除します
   // $wp_customize->remove_control('blogdescription');
 
-  // Uncomment the following to change the default section titles
-  // $wp_customize->get_section('colors')->title = __( 'Theme Colors' );
-  // $wp_customize->get_section('background_image')->title = __( 'Images' );
+  // デフォルトのセクションタイトルを変更するには、以下をコメント解除します
+  // $wp_customize->get_section('colors')->title = __( 'テーマカラー' );
+  // $wp_customize->get_section('background_image')->title = __( '画像' );
 }
 
 add_action('customize_register', 'bones_theme_customizer');
 
-/************* ACTIVE SIDEBARS ********************/
+/************* アクティブサイドバー ********************/
 
-// Sidebars & Widgetizes Areas
+// サイドバーとウィジェットエリア
 function bones_register_sidebars()
 {
   register_sidebar(array(
     'id' => 'sidebar1',
     'name' => __('Sidebar 1', 'bonestheme'),
-    'description' => __('The first (primary) sidebar.', 'bonestheme'),
+    'description' => __('最初の（プライマリ）サイドバー。', 'bonestheme'),
     'before_widget' => '<div id="%1$s" class="widget %2$s">',
     'after_widget' => '</div>',
     'before_title' => '<h4 class="widgettitle">',
@@ -138,38 +136,33 @@ function bones_register_sidebars()
   ));
 
   /*
-	to add more sidebars or widgetized areas, just copy
-	and edit the above sidebar code. In order to call
-	your new sidebar just use the following code:
+    追加のサイドバーやウィジェットエリアを追加するには、上記のサイドバーコードをコピーして編集します。
+    新しいサイドバーを呼び出すには、次のコードを使用します：
 
-	Just change the name to whatever your new
-	sidebar's id is, for example:
+    新しいサイドバーのIDに名前を変更するだけです。例えば：
 
-	register_sidebar(array(
-		'id' => 'sidebar2',
-		'name' => __( 'Sidebar 2', 'bonestheme' ),
-		'description' => __( 'The second (secondary) sidebar.', 'bonestheme' ),
-		'before_widget' => '<div id="%1$s" class="widget %2$s">',
-		'after_widget' => '</div>',
-		'before_title' => '<h4 class="widgettitle">',
-		'after_title' => '</h4>',
-	));
+    register_sidebar(array(
+        'id' => 'sidebar2',
+        'name' => __( 'Sidebar 2', 'bonestheme' ),
+        'description' => __( '2番目の（セカンダリ）サイドバー。', 'bonestheme' ),
+        'before_widget' => '<div id="%1$s" class="widget %2$s">',
+        'after_widget' => '</div>',
+        'before_title' => '<h4 class="widgettitle">',
+        'after_title' => '</h4>',
+    ));
 
-	To call the sidebar in your template, you can just copy
-	the sidebar.php file and rename it to your sidebar's name.
-	So using the above example, it would be:
-	sidebar-sidebar2.php
+    テンプレートでサイドバーを呼び出すには、sidebar.phpファイルをコピーしてサイドバーの名前に変更するだけです。
+    上記の例を使用すると、次のようになります：
+    sidebar-sidebar2.php
 
-	*/
-} // don't remove this bracket!
+    */
+} // この括弧を削除しないでください！
 
 
 /*
-This is a modification of a function found in the
-twentythirteen theme where we can declare some
-external fonts. If you're using Google Fonts, you
-can replace these fonts, change it in your scss files
-and be up and running in seconds.
+これはtwentythirteenテーマで見つかった関数の修正で、
+外部フォントを宣言できます。Google Fontsを使用している場合は、
+これらのフォントを置き換え、scssファイルで変更し、すぐに実行できます。
 */
 function bones_fonts()
 {
@@ -189,4 +182,4 @@ function enqueue_uikit()
 }
 add_action('wp_enqueue_scripts', 'enqueue_uikit');
 
-/* DON'T DELETE THIS CLOSING TAG */
+/* この閉じタグを削除しないでください */
