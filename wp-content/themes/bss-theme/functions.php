@@ -208,4 +208,15 @@ function bones_fonts()
 
 add_action('wp_enqueue_scripts', 'bones_fonts');
 
+function enqueue_uikit()
+{
+  // UIkitのCSSを追加
+  wp_enqueue_style('uikit-css', get_template_directory_uri() . '/library/uikit/css/uikit.min.css');
+
+  // UIkitのJavaScriptを追加
+  wp_enqueue_script('uikit-js', get_template_directory_uri() . '/library/uikit/js/uikit.min.js', array('jquery'), null, true);
+  wp_enqueue_script('uikit-icons', get_template_directory_uri() . '/library/uikit/js/uikit-icons.min.js', array('jquery'), null, true);
+}
+add_action('wp_enqueue_scripts', 'enqueue_uikit');
+
 /* DON'T DELETE THIS CLOSING TAG */
