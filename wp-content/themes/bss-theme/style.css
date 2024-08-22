@@ -1,108 +1,79 @@
 /******************************************************************
 Theme Name: BSSテーマ
-Theme URI: http://www.themble.com/bones
-Description: This site was built using the Bones Development Theme. For more information about Bones or to view documentation, you can visit the <a href="https://github.com/eddiemachado/bones/issues" title="Bones Issues">Bones Issues</a> page on Github. You'll want to customize this for your clients with your own information.
-Author: Your Name Here
-Author URI: http://www.yoururlhere.com
-Version: 1.7
-Tags: fluid-layout, responsive-layout, accessibility-ready, translation-ready, microformats, rtl-language-support
+テーマURI: http://www.themble.com/bones
+説明: このサイトはBones開発テーマを使用して構築されました。Bonesについての詳細やドキュメントを閲覧するには、Githubの<a href="https://github.com/eddiemachado/bones/issues" title="Bones Issues">Bones Issues</a>ページをご覧ください。クライアントのためにこのテーマをカスタマイズする際には、あなた自身の情報を追加してください。
+作成者: Your Name Here
+作成者URI: http://www.yoururlhere.com
+バージョン: 1.7
+タグ: fluid-layout, responsive-layout, accessibility-ready, translation-ready, microformats, rtl-language-support
 
-License: WTFPL
-License URI: http://sam.zoy.org/wtfpl/
-Are You Serious? Yes.
+ライセンス: WTFPL
+ライセンスURI: http://sam.zoy.org/wtfpl/
+本気ですか？ はい。
 
 
-MAKE SURE TO READ BELOW BEFORE GETTING STARTED FOR THE FIRST TIME!
+初めて始める前に必ず以下を読んでください！
 ------------------------------------------------------------------
 
-You may be thinking…
+あなたはこう思っているかもしれません…
 
-WHOA, WHOA, WHOA…WHAT HAPPENED HERE?
+おいおいおい…何が起こったんだ？
 
-But before you freak out, let me take a few minutes to explain.
+でも、パニックになる前に、少し時間を取って説明させてください。
 
-Bones now uses Sass by default. If you prefer using regular CSS,
-then feel free to modify this theme how you like and keep a copy
-as your own personal starting point.
+BonesはデフォルトでSassを使用するようになりました。通常のCSSを使用したい場合は、
+このテーマを自由に変更して、自分の個人的なスタートポイントとしてコピーを保持してください。
 
-DON'T DISMISS IT JUST YET THOUGH, USING Sass ISN'T AS COMPLICATED AS YOU THINK.
+まだ諦めないでください、Sassの使用は思ったほど複雑ではありません。
 
-It does take a few minutes to wrap your head around, but it will all
-be worth it. Need a quick intro? Here are a few quick reads:
+理解するのに少し時間がかかりますが、それだけの価値があります。簡単な紹介が必要ですか？ここにいくつかのクイックリードがあります：
 
-http://simplebits.com/notebook/2013/11/13/sass-book/ (BUY THIS)
+http://simplebits.com/notebook/2013/11/13/sass-book/ (これを買ってください)
 http://cognition.happycog.com/article/preprocess-this
 http://viget.com/inspire/sass-a-designers-perspective
 http://ianstormtaylor.com/oocss-plus-sass-is-the-best-way-to-css/
 http://css-tricks.com/sass-style-guide/
 http://net.tutsplus.com/tutorials/html-css-techniques/developing-with-sass-and-chrome-devtools/
 
-I would HIGHLY RECOMMEND, if you are going to be working with Sass, that you work locally.
-The browsers don't understand Sass and compiling it on the server takes a bit
-of a setup.
+Sassを使用する場合は、ローカルで作業することを強くお勧めします。
+ブラウザはSassを理解せず、サーバーでのコンパイルには少し設定が必要です。
 
-That being said, here are a few MUST HAVE TOOLS for working with a
-pre-processor: (You really only need one of them)
+そうは言っても、プリプロセッサを使用するための必須ツールをいくつか紹介します：（本当に必要なのは1つだけです）
 
-CodeKit: (Highly Recommended)
+CodeKit: （強くお勧めします）
 http://incident57.com/codekit/
 
-Compass App: (Windows / Mac Users)
+Compass App: （Windows / Macユーザー）
 http://compass.handlino.com/
 
-These applications compile Sass into valid CSS. This
-way you can keep your production files easy to read and your
-CSS minified and speedy. Simply set the output to the
-library/css folder and you are all set. It's a thing of beauty.
-
-You can also setup auto compiling with Grunt or using Terminal on
-OSX. It's a bit complicated to setup so if you aren't familiar
-with it, just get one of the automated applications.
+これらのアプリケーションはSassを有効なCSSにコンパイルします。この方法で、プロダクションファイルを読みやすく保ち、CSSを最小化して高速化できます。出力をlibrary/cssフォルダに設定するだけで、すべてが整います。美しいものです。
+GruntやOSXのターミナルを使用して自動コンパイルを設定することもできます。設定が少し複雑なので、慣れていない場合は自動化されたアプリケーションの1つを取得してください。
 
 ---------------------------------------------------------------
 
-Remember, once you download Bones it's up to you how to use it,
-so go nuts. Set things up and develop in a way that's easiest for
-you. If using Sass is still a bit confusing for you, then remove it
-and customize this template as you see fit.
+Bonesをダウンロードしたら、使用方法はあなた次第ですので、自由に設定して、最も簡単な方法で開発してください。
+Sassの使用がまだ少し混乱している場合は、それを削除してこのテンプレートを好きなようにカスタマイズしてください。
 
-If you're a bit uneasy about using Sass or just want a familiar setup,
-take a few minutes and think about how much better a developer you
-can become by just TRYING out new technologies. It may be tough at
-first but it WILL make you a better developer. TRUST ME ON THIS. Give
-it a week, maybe two, and you will never go back.
+Sassの使用に不安がある場合や、馴染みのあるセットアップを望む場合は、少し時間を取って、新しい技術を試すことでどれだけ優れた開発者になれるかを考えてみてください。
+最初は難しいかもしれませんが、それは確実にあなたをより優れた開発者にします。これを信じてください。1週間、もしかしたら2週間試してみてください、そしてもう戻れなくなるでしょう。
 
-If you STILL can't get on board and want to jump ship, that's cool.
-Bones is not for everyone and that's ok, I mean I'm not hurt by it,
-whatever, I never liked you anyway. Here are some other alternatives
-if you're looking for a blank starter theme. I'll just be here waiting
-by the window, in case you ever decide to come back.
+それでも乗り気になれず、離れたい場合は、それでも大丈夫です。
+Bonesは誰にでも合うわけではありません、それは問題ありません、私はそれで傷つくことはありません、何でもいいです、私はあなたが好きではありませんでした。空白のスターターテーマを探している場合、他の代替案もあります。あなたが戻ってくるのを待っています。
 
-http://roots.io/starter-theme (way more complex but has a ton of cool features)
-http://html5reset.org (super clean and great markup)
-https://github.com/viewportindustries/starkers (not sure if it's still active, but still good)
+http://roots.io/starter-theme （はるかに複雑ですが、たくさんのクールな機能があります）
+http://html5reset.org （非常にクリーンで素晴らしいマークアップ）
+https://github.com/viewportindustries/starkers （まだアクティブかどうかは不明ですが、それでも良いです）
 
-That's it. It's time to jump in and get your hands dirty.
-Seriously, why are you still reading this? Get to work!
-If you have any issues or problems, you can create an issue on github
-or find me on Twitter: @eddiemachado (SHAMELESS PLUG!).
+それだけです。さあ、手を汚して作業を始めましょう。
+本当に、なぜまだこれを読んでいるのですか？作業に取り掛かりましょう！
+問題やトラブルがある場合は、githubで問題を作成するか、Twitterで私を見つけてください：@eddiemachado（恥知らずな宣伝！）。
 
-Happy Developing!
+開発を楽しんでください！
 
-(When you're done, you may want to remove all this nonsense before
-passing it along to your client.)
+（作業が終わったら、このナンセンスな部分をすべて削除してクライアントに渡すことをお勧めします。）
 
 ******************************************************************/
 
-/*
-WordPress Probz
-So Theme Check (http://wordpress.org/plugins/theme-check/)
-is constantly telling me that it needs these classes in the CSS even
-though they are in the REAL stylesheet in library/css/style.css.
-So we're gonna drop these here to keep it happy.
-Great work, Theme Check (eye roll)
-*/
-
-.sticky {}          /* DO NOT EDIT THIS */
-.gallery-caption {} /* THESE ARE USELESS */
-.bypostauthor {}    /* THEY ARE ONLY TO KEEP THEME CHECK HAPPY */
+.sticky {}          /* これを編集しないでください */
+.gallery-caption {} /* これらは無用です */
+.bypostauthor {}    /* これらはTheme Checkを満足させるためだけのものです */
