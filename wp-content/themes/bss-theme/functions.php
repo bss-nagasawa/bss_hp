@@ -1,11 +1,6 @@
 <?php
 /*
-Author: Eddie Machado
-URL: http://themble.com/bones/
-
-This is where you can drop your custom functions or
-just edit things like thumbnail sizes, header images,
-sidebars, comments, etc.
+Author: BSS
 */
 
 // LOAD BONES CORE (if you remove this, the theme will break)
@@ -103,35 +98,13 @@ function bones_custom_image_sizes($sizes)
   ));
 }
 
-/*
-The function above adds the ability to use the dropdown menu to select
-the new images sizes you have just created from within the media manager
-when you add media to your content blocks. If you add more image sizes,
-duplicate one of the lines in the array and name it according to your
-new image size.
-*/
-
 /************* THEME CUSTOMIZE *********************/
-
-/* 
-  A good tutorial for creating your own Sections, Controls and Settings:
-  http://code.tutsplus.com/series/a-guide-to-the-wordpress-theme-customizer--wp-33722
-  
-  Good articles on modifying the default options:
-  http://natko.com/changing-default-wordpress-theme-customization-api-sections/
-  http://code.tutsplus.com/tutorials/digging-into-the-theme-customizer-components--wp-27162
-  
-  To do:
-  - Create a js for the postmessage transport method
-  - Create some sanitize functions to sanitize inputs
-  - Create some boilerplate Sections, Controls and Settings
-*/
 
 function bones_theme_customizer($wp_customize)
 {
   // $wp_customize calls go here.
   //
-  // Uncomment the below lines to remove the default customize sections 
+  // Uncomment the below lines to remove the default customize sections
 
   // $wp_customize->remove_section('title_tagline');
   // $wp_customize->remove_section('colors');
