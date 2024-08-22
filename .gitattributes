@@ -1,0 +1,5 @@
+# グローバル設定を変更
+git config --global core.autocrlf false
+
+# ローカル設定を変更（リポジトリ内のみ）
+git config core.autocrlf false
