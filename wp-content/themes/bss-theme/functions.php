@@ -205,3 +205,39 @@ function load_part_shortcode($atts)
   return ob_get_clean();
 }
 add_shortcode('load_part', 'load_part_shortcode');
+
+
+// NoteのAPIから指定されたページの投稿一覧を取得する関数
+function get_note_posts($page = 1)
+{
+  $base_url = "https://note.com/api/v2/creators/makoto3000/contents";
+  $kind = "note";
+  $response = wp_remote_get("$base_url?kind=$kind&page=$page");
+  if (is_wp_error($response)) {
+    return [];
+  }
+
+  $data = json_decode(wp_remote_retrieve_body($response), true);
+  if (empty($data['data'])) {
+    return [];
+  }
+  return $data['data'];
+}
+
+// デバッグ用のショートコード
+function display_note_api_response()
+{
+  $page = isset($_GET['page']) ? intval($_GET['page']) : 1;
+  $data = get_note_posts($page);
+
+  echo '<pre>';
+  // print_r($data['contents'][1]);
+  // print_r($data['contents'][1]['name']);
+  // print_r($data['contents'][1]['noteUrl']);
+  // print_r($data['contents'][1]['key']);
+  // print_r($data['contents'][1]['publishAt']);
+  // print_r($data['contents'][1]['body']);
+  echo '</pre>';
+}
+
+add_shortcode('note_api_response', 'display_note_api_response');

@@ -40,6 +40,8 @@ get_header();
 			<div id="feature-bss" class="wide-content">
 			</div><!-- /#feature-bss -->
 			<div id="president-blog" class="inner-content">
+				<!-- Note Blogの読み込み -->
+				<?php get_template_part('parts/parts-note-blog'); ?>
 			</div><!-- /#president-blog -->
 			<div id="staff-interview" class="inner-content">
 			</div><!-- /#staff-interview -->
