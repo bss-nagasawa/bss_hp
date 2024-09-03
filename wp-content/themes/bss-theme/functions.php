@@ -183,3 +183,25 @@ function enqueue_uikit()
 add_action('wp_enqueue_scripts', 'enqueue_uikit');
 
 /* この閉じタグを削除しないでください */
+
+//partsファイル読み込み用のショートコード作成
+function load_part_shortcode($atts)
+{
+  $atts = shortcode_atts(array(
+    'path' => '',
+  ), $atts, 'load_part');
+
+  if (!$atts['path']) {
+    return '';
+  }
+
+  $part_file = get_template_directory() . '/' . ltrim($atts['path'], '/');
+  if (!file_exists($part_file)) {
+    return '';
+  }
+
+  ob_start();
+  include $part_file;
+  return ob_get_clean();
+}
+add_shortcode('load_part', 'load_part_shortcode');
