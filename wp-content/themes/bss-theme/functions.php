@@ -206,6 +206,8 @@ function load_part_shortcode($atts)
 }
 add_shortcode('load_part', 'load_part_shortcode');
 
+
+
 // NoteのAPIから指定されたページの投稿一覧を取得する関数
 function get_note_posts($page = 1)
 {
@@ -246,7 +248,11 @@ function load_note_posts()
     if ($page > 1) {
       $output .= '<a href="#" class="prev-page" data-page="' . ($page - 1) . '">前のページ</a>';
     }
-    $output .= '<a href="#" class="next-page" data-page="' . ($page + 1) . '">次のページ</a>';
+    // 次のページが存在するかどうかを判断
+    $next_page_posts = get_note_posts($page + 1);
+    if (!empty($next_page_posts['contents'])) {
+      $output .= '<a href="#" class="next-page" data-page="' . ($page + 1) . '">次のページ</a>';
+    }
     $output .= '</div>';
   } else {
     $output = '<p>投稿がありません。</p>';
