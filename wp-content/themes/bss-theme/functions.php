@@ -264,3 +264,23 @@ function load_note_posts()
 
 add_action('wp_ajax_load_note_posts', 'load_note_posts');
 add_action('wp_ajax_nopriv_load_note_posts', 'load_note_posts');
+
+// 投稿タイプのパーマリンクを設定
+function custom_post_type_permalink($post_link, $post)
+{
+  if (is_object($post) && $post->post_type == 'staff-interview') {
+    return home_url('staff-interview/' . $post->ID);
+  }
+  return $post_link;
+}
+add_filter('post_type_link', 'custom_post_type_permalink', 1, 2);
+
+// 投稿タイプのパーマリンクのリライトルールの設定
+function custom_post_type_rewrite_rules($rules)
+{
+  $new_rules = array(
+    'staff-interview/([0-9]+)$' => 'index.php?post_type=staff-interview&p=$matches[1]',
+  );
+  return $new_rules + $rules;
+}
+add_filter('rewrite_rules_array', 'custom_post_type_rewrite_rules');
