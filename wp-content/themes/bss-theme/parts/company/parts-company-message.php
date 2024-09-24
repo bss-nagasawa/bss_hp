@@ -1,5 +1,7 @@
 <div id="company-message" class="content-message">
-    <h2>代表メッセージ</h2>
+    <h3>代表メッセージ</h3>
+    <h4>Message</h4>
+    <img src="<?php echo theme_image_directory(); ?>/company/message.png">
     <p>
         本日は、弊社のホームページをご覧いただきまして、ありがとうございます。<br>
         代表取締役社長の田中誠です。<br>
