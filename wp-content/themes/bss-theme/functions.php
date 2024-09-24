@@ -284,3 +284,117 @@ function custom_post_type_rewrite_rules($rules)
   return $new_rules + $rules;
 }
 add_filter('rewrite_rules_array', 'custom_post_type_rewrite_rules');
+
+//テーマディレクトリ内の画像フォルダのURL定義
+function theme_image_directory()
+{
+  return get_template_directory_uri() . '/library/images';
+}
+
+//グローバルメニューの定義
+// ナビゲーションメニューを登録
+function register_menus()
+{
+  register_nav_menus(
+    array(
+      'global' => __('Global'),
+      'footer' => __('Footer'),
+    )
+  );
+}
+add_action('init', 'register_menus');
+class Walker_Nav_Menu_No_UL extends Walker_Nav_Menu
+{
+  // 開始タグを出力しない
+  function start_lvl(&$output, $depth = 0, $args = array()) {}
+
+  // 終了タグを出力しない
+  function end_lvl(&$output, $depth = 0, $args = array()) {}
+
+  // 開始タグを出力しない
+  function start_el(&$output, $item, $depth = 0, $args = array(), $id = 0)
+  {
+    $output .= sprintf(
+      '<a href="%s">%s</a>',
+      esc_url($item->url),
+      esc_html($item->title)
+    );
+  }
+
+  // 終了タグを出力しない
+  function end_el(&$output, $item, $depth = 0, $args = array()) {}
+}
+
+// 一般設定にカスタムフィールドを追加
+function add_company_info_fields()
+{
+  add_settings_section(
+    'company_info_section', // セクションID
+    '会社情報', // セクションタイトル
+    null, // セクションの説明
+    'general' // 表示するページ
+  );
+
+  add_settings_field(
+    'company_address', // フィールドID
+    '会社の住所', // フィールドタイトル
+    'company_address_field_callback', // コールバック関数
+    'general', // 表示するページ
+    'company_info_section' // セクションID
+  );
+
+  add_settings_field(
+    'company_phone', // フィールドID
+    '電話番号', // フィールドタイトル
+    'company_phone_field_callback', // コールバック関数
+    'general', // 表示するページ
+    'company_info_section' // セクションID
+  );
+
+  add_settings_field(
+    'company_email', // フィールドID
+    'メールアドレス', // フィールドタイトル
+    'company_email_field_callback', // コールバック関数
+    'general', // 表示するページ
+    'company_info_section' // セクションID
+  );
+
+  add_settings_field(
+    'company_coordinates', // フィールドID
+    'Google Map座標', // フィールドタイトル
+    'company_coordinates_field_callback', // コールバック関数
+    'general', // 表示するページ
+    'company_info_section' // セクションID
+  );
+
+  register_setting('general', 'company_address', 'sanitize_text_field');
+  register_setting('general', 'company_phone', 'sanitize_text_field');
+  register_setting('general', 'company_email', 'sanitize_email');
+  register_setting('general', 'company_coordinates', 'sanitize_text_field');
+}
+add_action('admin_init', 'add_company_info_fields');
+
+// フィールドのコールバック関数
+function company_address_field_callback()
+{
+  $value = get_option('company_address', '');
+  echo '<input type="text" id="company_address" name="company_address" value="' . esc_attr($value) . '" class="regular-text">';
+}
+
+function company_phone_field_callback()
+{
+  $value = get_option('company_phone', '');
+  echo '<input type="text" id="company_phone" name="company_phone" value="' . esc_attr($value) . '" class="regular-text">';
+}
+
+function company_email_field_callback()
+{
+  $value = get_option('company_email', '');
+  echo '<input type="email" id="company_email" name="company_email" value="' . esc_attr($value) . '" class="regular-text">';
+}
+
+function company_coordinates_field_callback()
+{
+  $value = get_option('company_coordinates', '');
+  echo '<input type="text" id="company_coordinates" name="company_coordinates" value="' . esc_attr($value) . '" class="regular-text">';
+}
