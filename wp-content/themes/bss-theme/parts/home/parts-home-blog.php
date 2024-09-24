@@ -7,7 +7,7 @@ $args_blog = array(
 $blog_query = new WP_Query($args_blog);
 ?>
 
-<h3>Blog</h3>
+<h3>社員ブログ</h3>
 <?php if ($blog_query->have_posts()) : ?>
     <?php while ($blog_query->have_posts()) : $blog_query->the_post(); ?>
         <div class="custom-post-item">
