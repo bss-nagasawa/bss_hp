@@ -1,4 +1,7 @@
 <div id="company-organization" class="content-organization">
-    <h2>組織図</h2>
-    <p>ここに組織図の内容を記載します。</p>
+    <h3>事業内容</h3>
+    <h4>Business Content</h4>
+    <div>
+        <img src="<?php echo theme_image_directory(); ?>/company/organization.png">
+    </div>
 </div><!-- /#company-organization -->
