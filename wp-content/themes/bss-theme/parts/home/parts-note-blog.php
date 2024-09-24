@@ -1,7 +1,7 @@
 <!-- parts-note-blog.php -->
 
 <div class="container">
-    <h1>社長ブログ</h1>
+    <h3>社長ブログ</h3>
     <div class="note-posts" id="note-posts">
         <?php
         $page = 1;

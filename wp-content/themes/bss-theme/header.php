@@ -54,7 +54,23 @@
 	<header class="header" role="banner" itemscope itemtype="http://schema.org/WPHeader">
 
 		<div id="" class="header-content">
+			<div class="content-left">
+				<a href="<?php echo home_url(); ?>">
+					<img src="<?php echo theme_image_directory(); ?>/logo.png">
+				</a>
+			</div>
+			<div class="content-right">
+				<?php
+				wp_nav_menu(array(
+					'theme_location' => 'global',
+					'container' => false,
+					'menu_class' => 'global',
+					'items_wrap' => '%3$s', // <ul>タグを出力しない
+					'walker' => new Walker_Nav_Menu_No_UL(), // カスタムウォーカーを使用
+				));
+				?>
 
+			</div>
 		</div>
 
 	</header>
