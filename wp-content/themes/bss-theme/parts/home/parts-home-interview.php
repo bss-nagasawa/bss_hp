@@ -7,20 +7,37 @@ $args_staff_interview = array(
 $staff_interview_query = new WP_Query($args_staff_interview);
 ?>
 
-<h3>社員インタビュー</h3>
+<div class="content-header content-interview">
+    <h3 class="content-header-title">社員インタビュー</h3>
+    <h4 class="content-header-ruby">Interview</h4>
+</div>
 <?php if ($staff_interview_query->have_posts()) : ?>
     <?php while ($staff_interview_query->have_posts()) : $staff_interview_query->the_post(); ?>
         <div class="custom-post-item">
-            <?php if (has_post_thumbnail()) : ?>
-                <div class="custom-post-thumbnail">
-                    <a href="<?php the_permalink(); ?>">
+            <a href="<?php the_permalink(); ?>">
+                <?php if (has_post_thumbnail()) : ?>
+                    <div class="custom-post-thumbnail">
                         <?php the_post_thumbnail('thumbnail'); ?>
-                    </a>
+                    </div>
+                <?php endif; ?>
+                <div class="custom-post-title">
+                    <p><?php the_title(); ?>さん</p>
                 </div>
-            <?php endif; ?>
-            <div class="custom-post-title">
-                <a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
-            </div>
+                <div class="custom-post-tags">
+                    <?php
+                    // カスタムフィールドの情報を取得して表示
+                    $interview_sex = get_field('interview_sex');
+                    $interview_ehistory = get_field('interview_ehistory');
+                    if (is_array($interview_sex)) {
+                        echo $interview_sex['label'];
+                    }
+                    if ($interview_ehistory) {
+                        echo ' エンジニア歴' . $interview_ehistory . '年';
+                    }
+
+                    ?>
+                </div>
+            </a>
         </div>
     <?php endwhile; ?>
     <?php wp_reset_postdata(); ?>
