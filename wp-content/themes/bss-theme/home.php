@@ -27,7 +27,7 @@ get_header();
 				<?php get_template_part('parts/home/parts-home-mv'); ?>
 			</div><!-- /#main-visual -->
 
-			<div id="about-bss" class="wide-content">
+			<div id="about-bss" class="wide-content bg-bgray">
 				<div class="inner">
 					<?php get_template_part('parts/home/parts-home-about'); ?>
 				</div>

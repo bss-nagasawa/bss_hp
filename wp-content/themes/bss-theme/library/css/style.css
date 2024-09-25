@@ -1,7 +1,7 @@
 /** デザイン用CSS 編集はこのファイルでお願いします **/
 /** uikitリセット **/
-h1,h2,h3,h4,h5,p,ul,ol,li,dl,dt,dd,table,th,td,form,fieldset,legend,input,textarea,button,select{margin:0;padding:0;}
-
+* {box-sizing: border-box;}
+h1,h2,h3,h4,h5,p,ul,ol,li,dl,dt,dd,table,th,td,form,fieldset,legend,input,textarea,button,select{margin:0;padding:0;list-style: none;}
 /** グローバル **/
 .conteiner,
 .header,
@@ -15,7 +15,216 @@ h1,h2,h3,h4,h5,p,ul,ol,li,dl,dt,dd,table,th,td,form,fieldset,legend,input,textar
     width: 100%;
     margin: 0 auto;
 }
+/*margi,padding*/
+.contentHeader-spacing {
+    padding-top: 80px;
+    padding-bottom: 50px;
+}
+.content-body {
+    padding-bottom: 80px;
+}
+/*bg*/
+.bg-bgray {
+    background-color: #E5F1FD;
+}
+/*common-font*/
+.tc-em {
+    color: #0B60B4;
+}
+.tc-sem {
+    color: #F89200;
+}
+.tc-white {
+    color: #fff;
+}
+.line15 {
+    line-height: 1.5em;
+}
+.line2 {
+    line-height: 2em;
+}
+/*parts*/
+.btn {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+}
+.btn:hover {
+    text-decoration: none;
+}
+.btn-mc {
+    background-color: #0B60B4;
+}
+.btn-sc {
+    background-color: #54A2F0;
+}
+.content-header {
+    text-align: center;
+}
+.content-header .content-header-title {
+    color: #0B60B4;
+    font-size: 36px;
+    font-weight: bold;
+}
+.content-header .content-header-ruby {
+    color: #0B60B4;
+    font-size: 16px;
+    font-weight: 200;
+}
+.content-header .content-header-ruby:before,
+.content-header .content-header-ruby:after {
+    content: "-";
+    display: inline-block;
+    margin: 0 0.5em;
+}
+/* header */
+.header {
+    background-color: #fff;
+    width: 100%;
+    position: sticky;
+    top: 0;
+    left: 0;
+    box-shadow: 0 4px 4px rgba(0,0,0,0.1);
+}
+    .header-content {
+        height: 100px;
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+        .content-left {
+            width: fit-content;
+        }
+            .header-home-link {
+                display: block;
+                margin-left: 30px;
+            }
+            .logo-image {
+                display: block;
+                height: 85px;
+                width: auto;
+            }
+        .content-right {
+            width: fit-content;
+            height: 100%;
+        }
+            .header-menu {
+                display: flex;
+                justify-content: space-around;
+                flex-wrap: wrap;
+                height: 100%;
+            }
+                .header-menu a {
+                    height: 100%;
+                    display: flex;
+                    align-items: center;
+                    text-decoration: none;
+                    justify-content: center;
+                    padding: 0 30px;
+                    color: #000;
+                }
+                    .header-menu a:hover {
+                        text-decoration: none;
+                    }
+                .header-menu a:last-child {
+                    width: 220px;
+                    background-color: #0B60B4;
+                    color: #fff;
+                    margin-left: 30px;
+                }
+
 /** ファイル別 **/
 /* home */
-
+#main-visual {
+    height: 500px;
+}
+    .mv-inner {
+        width: 1080px;
+        margin: 0 auto;
+        display: flex;
+        flex-wrap: wrap;
+    }
+        .mv-inner-left {
+            width: 570px;
+        }
+        .mv-left-content {
+            margin-top: 49px;
+        }
+            .mv-headline {
+                font-size: 56px;
+                font-weight: bold;
+                line-height: 1.4em;
+            }
+            .mv-description {
+                font-weight: 500;
+                margin-top: 20px;
+            }
+            .mv-btn-wrap {
+                margin-top: 43px;
+            }
+                .mv-left-content .btn {
+                    width: 270px;
+                    font-size: 24px;
+                    font-weight: 500;
+                    height: 65px;
+                    border-radius: 65px;
+                    position: relative;padding-right: 1em;
+                }
+                .mv-left-content .btn:hover {
+                    color: #fff;
+                }
+                .mv-left-content .btn-mc {
+                    margin-right: calc(570px - 270px - 270px);
+                }
+                .mv-left-content .btn-mc:after {
+                    content: "";
+                    display: block;
+                    width: 36px;
+                    height: 36px;
+                    background-image: url(../images/icon/btn-01.png);
+                    background-size: 100%;
+                    background-repeat: no-repeat;
+                    position: absolute;
+                    right: 27px;
+                    top: 15px;
+                }
+                .mv-left-content .btn-sc:after {
+                    content: "";
+                    display: block;
+                    width: 36px;
+                    height: 36px;
+                    background-image: url(../images/icon/btn-02.png);
+                    background-size: 100%;
+                    background-repeat: no-repeat;
+                    position: absolute;
+                    right: 27px;
+                    top: 15px;
+                }
+        .mv-inner-right {
+            width: calc(100% - 570px);
+        }
+.images-childs-card {
+    width: 420px;
+    border-radius: 40px;
+    padding: 40px;
+}
+    .images-childs-card img {
+        display: block;
+        height: 240px;
+        width: auto;
+        margin-top: 24px;
+        margin-bottom: 24px;
+    }
+        .card-title {
+            font-size: 36px;
+            font-weight: bold;
+            letter-spacing: 0.25em;
+        }
+        .card-head {
+            font-size: 24px;
+            font-weight: bold;
+        }
 /** レスポンシブ **/
