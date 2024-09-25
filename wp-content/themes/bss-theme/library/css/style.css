@@ -227,4 +227,72 @@ h1,h2,h3,h4,h5,p,ul,ol,li,dl,dt,dd,table,th,td,form,fieldset,legend,input,textar
             font-size: 24px;
             font-weight: bold;
         }
+.lists-article {
+    padding-right: 1em;
+}
+    .lists-article > div {
+        width: calc(100% - 33px);
+    }
+        .list-head {
+            font-size: 24px;
+            font-weight: bold;
+        }
+        .lists-article {
+            line-height: 1.7em;
+        }
+.lists-article:before {
+    content: "";
+    display: block;
+    width: 25px;
+    height: 26px;
+    background-image: url(../images/icon/circle2.png);
+    background-position: center;
+    background-size: 100%;
+    background-repeat: no-repeat;
+    margin-right: 8px;
+    margin-top: 0.25em;
+}
+.image-wrap {
+    display: flex;
+    justify-content: end;
+}
+.image-wrap img {
+    width: 458px;
+    height: 266px;
+    overflow: hidden;
+    border-radius: 125px 0 0 0;
+}
+.image-wrap:before {
+    content: "";
+    display: block;
+    width: 34px;
+    height: 266px;
+    background-position: top center;
+    background-size: 100%;
+    background-repeat: no-repeat;
+}
+.content-features-lists li:nth-child(1) .image-wrap:before {
+    background-image: url(../images/home/feature-tag-01.png);
+}
+.content-features-lists li:nth-child(2) .image-wrap:before {
+    background-image: url(../images/home/feature-tag-02.png);
+}
+.content-features-lists li:nth-child(3) .image-wrap:before {
+    background-image: url(../images/home/feature-tag-03.png);
+}
+.content-features-lists li:nth-child(4) .image-wrap:before {
+    background-image: url(../images/home/feature-tag-04.png);
+}
+.reverse {
+    flex-direction: row-reverse;
+}
+    .reverse .lists-article {
+        padding-left: 1em;
+    }
+    .reverse .image-wrap {
+        justify-content: start;
+    }
+    .reverse .image-wrap img {
+        border-radius: 0 125px 0 0;
+    }
 /** レスポンシブ **/

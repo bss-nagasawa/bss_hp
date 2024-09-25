@@ -34,7 +34,9 @@ get_header();
 			</div><!-- /#about-bss -->
 
 			<div id="feature-bss" class="parallax-content">
-				<?php get_template_part('parts/home/parts-home-features'); ?>
+				<div class="inner">
+					<?php get_template_part('parts/home/parts-home-features'); ?>
+				</div>
 			</div><!-- /#feature-bss -->
 
 			<div id="staff-interview" class="parallax-content">
