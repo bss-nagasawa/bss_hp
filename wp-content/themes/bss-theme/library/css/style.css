@@ -20,6 +20,10 @@ h1,h2,h3,h4,h5,p,ul,ol,li,dl,dt,dd,table,th,td,form,fieldset,legend,input,textar
     padding-top: 80px;
     padding-bottom: 50px;
 }
+.contentHeader-spacing-small {
+    padding-top: 37px;
+    padding-bottom: 30px;
+}
 .content-body {
     padding-bottom: 80px;
 }
@@ -138,6 +142,11 @@ h1,h2,h3,h4,h5,p,ul,ol,li,dl,dt,dd,table,th,td,form,fieldset,legend,input,textar
 
 /** ファイル別 **/
 /* home */
+#home-content {
+    background-image: url(../images/home/bgsample.png);
+    background-repeat: repeat;
+    background-attachment: fixed;
+}
 #main-visual {
     height: 500px;
 }
@@ -295,4 +304,35 @@ h1,h2,h3,h4,h5,p,ul,ol,li,dl,dt,dd,table,th,td,form,fieldset,legend,input,textar
     .reverse .image-wrap img {
         border-radius: 0 125px 0 0;
     }
+.interview-content-container {
+    background-color: #fff;
+    position: relative;
+}
+.content-header.content-interview {
+    position: sticky;
+    z-index: 9;
+}
+
+.content-header.content-interview * {
+    color: #fff;
+}
+.slide-container {
+    position: sticky;
+    z-index: 10;
+}
+    .custom-post-item-interview {
+        width: 500px;
+    }
+.interview-content-wrap {
+    width: 100%;
+    height: 270px;
+    background-image: url(../images/home/interview-head-bg.png);
+    background-size: cover;
+    background-position: top center;
+    background-repeat: no-repeat;
+    z-index: 1;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
 /** レスポンシブ **/
