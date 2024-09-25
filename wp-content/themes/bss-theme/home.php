@@ -27,17 +27,19 @@ get_header();
 				<?php get_template_part('parts/home/parts-home-mv'); ?>
 			</div><!-- /#main-visual -->
 
-			<div id="about-bss" class="wide-content">
+			<div id="about-bss" class="wide-content bg-bgray">
 				<div class="inner">
 					<?php get_template_part('parts/home/parts-home-about'); ?>
 				</div>
 			</div><!-- /#about-bss -->
 
 			<div id="feature-bss" class="parallax-content">
-				<?php get_template_part('parts/home/parts-home-features'); ?>
+				<div class="inner">
+					<?php get_template_part('parts/home/parts-home-features'); ?>
+				</div>
 			</div><!-- /#feature-bss -->
 
-			<div id="staff-interview" class="parallax-content">
+			<div id="staff-interview" class="slide-content">
 				<?php get_template_part('parts/home/parts-home-interview'); ?>
 			</div><!-- /#staff-interview -->
 

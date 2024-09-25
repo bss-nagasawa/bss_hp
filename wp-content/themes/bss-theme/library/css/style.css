@@ -1,7 +1,7 @@
 /** デザイン用CSS 編集はこのファイルでお願いします **/
 /** uikitリセット **/
-h1,h2,h3,h4,h5,p,ul,ol,li,dl,dt,dd,table,th,td,form,fieldset,legend,input,textarea,button,select{margin:0;padding:0;}
-
+* {box-sizing: border-box;}
+h1,h2,h3,h4,h5,p,ul,ol,li,dl,dt,dd,table,th,td,form,fieldset,legend,input,textarea,button,select{margin:0;padding:0;list-style: none;}
 /** グローバル **/
 .conteiner,
 .header,
@@ -15,7 +15,324 @@ h1,h2,h3,h4,h5,p,ul,ol,li,dl,dt,dd,table,th,td,form,fieldset,legend,input,textar
     width: 100%;
     margin: 0 auto;
 }
+/*margi,padding*/
+.contentHeader-spacing {
+    padding-top: 80px;
+    padding-bottom: 50px;
+}
+.contentHeader-spacing-small {
+    padding-top: 37px;
+    padding-bottom: 30px;
+}
+.content-body {
+    padding-bottom: 80px;
+}
+/*bg*/
+.bg-bgray {
+    background-color: #E5F1FD;
+}
+/*common-font*/
+.tc-em {
+    color: #0B60B4;
+}
+.tc-sem {
+    color: #F89200;
+}
+.tc-white {
+    color: #fff;
+}
+.line15 {
+    line-height: 1.5em;
+}
+.line2 {
+    line-height: 2em;
+}
+/*parts*/
+.btn {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+}
+.btn:hover {
+    text-decoration: none;
+}
+.btn-mc {
+    background-color: #0B60B4;
+}
+.btn-sc {
+    background-color: #54A2F0;
+}
+.content-header {
+    text-align: center;
+}
+.content-header .content-header-title {
+    color: #0B60B4;
+    font-size: 36px;
+    font-weight: bold;
+}
+.content-header .content-header-ruby {
+    color: #0B60B4;
+    font-size: 16px;
+    font-weight: 200;
+}
+.content-header .content-header-ruby:before,
+.content-header .content-header-ruby:after {
+    content: "-";
+    display: inline-block;
+    margin: 0 0.5em;
+}
+/* header */
+.header {
+    background-color: #fff;
+    width: 100%;
+    position: sticky;
+    top: 0;
+    left: 0;
+    box-shadow: 0 4px 4px rgba(0,0,0,0.1);
+}
+    .header-content {
+        height: 100px;
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+        .content-left {
+            width: fit-content;
+        }
+            .header-home-link {
+                display: block;
+                margin-left: 30px;
+            }
+            .logo-image {
+                display: block;
+                height: 85px;
+                width: auto;
+            }
+        .content-right {
+            width: fit-content;
+            height: 100%;
+        }
+            .header-menu {
+                display: flex;
+                justify-content: space-around;
+                flex-wrap: wrap;
+                height: 100%;
+            }
+                .header-menu a {
+                    height: 100%;
+                    display: flex;
+                    align-items: center;
+                    text-decoration: none;
+                    justify-content: center;
+                    padding: 0 30px;
+                    color: #000;
+                }
+                    .header-menu a:hover {
+                        text-decoration: none;
+                    }
+                .header-menu a:last-child {
+                    width: 220px;
+                    background-color: #0B60B4;
+                    color: #fff;
+                    margin-left: 30px;
+                }
+
 /** ファイル別 **/
 /* home */
+#home-content {
+    background-image: url(../images/home/bgsample.png);
+    background-repeat: repeat;
+    background-attachment: fixed;
+}
+#main-visual {
+    height: 500px;
+}
+    .mv-inner {
+        width: 1080px;
+        margin: 0 auto;
+        display: flex;
+        flex-wrap: wrap;
+    }
+        .mv-inner-left {
+            width: 570px;
+        }
+        .mv-left-content {
+            margin-top: 49px;
+        }
+            .mv-headline {
+                font-size: 56px;
+                font-weight: bold;
+                line-height: 1.4em;
+            }
+            .mv-description {
+                font-weight: 500;
+                margin-top: 20px;
+            }
+            .mv-btn-wrap {
+                margin-top: 43px;
+            }
+                .mv-left-content .btn {
+                    width: 270px;
+                    font-size: 24px;
+                    font-weight: 500;
+                    height: 65px;
+                    border-radius: 65px;
+                    position: relative;padding-right: 1em;
+                }
+                .mv-left-content .btn:hover {
+                    color: #fff;
+                }
+                .mv-left-content .btn-mc {
+                    margin-right: calc(570px - 270px - 270px);
+                }
+                .mv-left-content .btn-mc:after {
+                    content: "";
+                    display: block;
+                    width: 36px;
+                    height: 36px;
+                    background-image: url(../images/icon/btn-01.png);
+                    background-size: 100%;
+                    background-repeat: no-repeat;
+                    position: absolute;
+                    right: 27px;
+                    top: 15px;
+                }
+                .mv-left-content .btn-sc:after {
+                    content: "";
+                    display: block;
+                    width: 36px;
+                    height: 36px;
+                    background-image: url(../images/icon/btn-02.png);
+                    background-size: 100%;
+                    background-repeat: no-repeat;
+                    position: absolute;
+                    right: 27px;
+                    top: 15px;
+                }
+        .mv-inner-right {
+            width: calc(100% - 570px);
+        }
+.images-childs-card {
+    width: 420px;
+    border-radius: 40px;
+    padding: 40px;
+}
+    .images-childs-card img {
+        display: block;
+        height: 240px;
+        width: auto;
+        margin-top: 24px;
+        margin-bottom: 24px;
+    }
+        .card-title {
+            font-size: 36px;
+            font-weight: bold;
+            letter-spacing: 0.25em;
+        }
+        .card-head {
+            font-size: 24px;
+            font-weight: bold;
+        }
+.lists-article {
+    padding-right: 1em;
+}
+    .lists-article > div {
+        width: calc(100% - 33px);
+    }
+        .list-head {
+            font-size: 24px;
+            font-weight: bold;
+        }
+        .lists-article {
+            line-height: 1.7em;
+        }
+.lists-article:before {
+    content: "";
+    display: block;
+    width: 25px;
+    height: 26px;
+    background-image: url(../images/icon/circle2.png);
+    background-position: center;
+    background-size: 100%;
+    background-repeat: no-repeat;
+    margin-right: 8px;
+    margin-top: 0.25em;
+}
+.image-wrap {
+    display: flex;
+    justify-content: end;
+}
+.image-wrap img {
+    width: 458px;
+    height: 266px;
+    overflow: hidden;
+    border-radius: 125px 0 0 0;
+}
+.image-wrap:before {
+    content: "";
+    display: block;
+    width: 34px;
+    height: 266px;
+    background-position: top center;
+    background-size: 100%;
+    background-repeat: no-repeat;
+}
+.content-features-lists li:nth-child(1) .image-wrap:before {
+    background-image: url(../images/home/feature-tag-01.png);
+}
+.content-features-lists li:nth-child(2) .image-wrap:before {
+    background-image: url(../images/home/feature-tag-02.png);
+}
+.content-features-lists li:nth-child(3) .image-wrap:before {
+    background-image: url(../images/home/feature-tag-03.png);
+}
+.content-features-lists li:nth-child(4) .image-wrap:before {
+    background-image: url(../images/home/feature-tag-04.png);
+}
+.reverse {
+    flex-direction: row-reverse;
+}
+    .reverse .lists-article {
+        padding-left: 1em;
+    }
+    .reverse .image-wrap {
+        justify-content: start;
+    }
+    .reverse .image-wrap img {
+        border-radius: 0 125px 0 0;
+    }
+.interview-content-container {
+    background-color: #fff;
+    position: relative;
+}
+.content-header.content-interview {
+    position: sticky;
+    z-index: 9;
+}
 
+.content-header.content-interview * {
+    color: #fff;
+}
+.slide-container {
+    position: sticky;
+    z-index: 10;
+}
+    .custom-post-item-interview {
+        width: 500px;
+    }
+.interview-content-wrap {
+    width: 100%;
+    height: 270px;
+    background-image: url(../images/home/interview-head-bg.png);
+    background-size: cover;
+    background-position: top center;
+    background-repeat: no-repeat;
+    z-index: 1;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
 /** レスポンシブ **/
