@@ -39,7 +39,7 @@ get_header();
 				</div>
 			</div><!-- /#feature-bss -->
 
-			<div id="staff-interview" class="parallax-content">
+			<div id="staff-interview" class="slide-content">
 				<?php get_template_part('parts/home/parts-home-interview'); ?>
 			</div><!-- /#staff-interview -->
 
