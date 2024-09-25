@@ -33,7 +33,7 @@
 	<meta name="msapplication-TileColor" content="#f01d4f">
 	<meta name="msapplication-TileImage" content="<?php echo get_template_directory_uri(); ?>/library/images/win8-tile-icon.png">
 	<meta name="theme-color" content="#121212">
-
+	<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
 	<link rel="pingback" href="<?php bloginfo('pingback_url'); ?>">
 
 	<?php // wordpress head functions 
@@ -55,21 +55,22 @@
 
 		<div id="" class="header-content">
 			<div class="content-left">
-				<a href="<?php echo home_url(); ?>">
-					<img src="<?php echo theme_image_directory(); ?>/logo.png">
+				<a href="<?php echo home_url(); ?>" class="header-home-link">
+					<img src="<?php echo theme_image_directory(); ?>/logo.png" class="logo-image">
 				</a>
 			</div>
 			<div class="content-right">
-				<?php
-				wp_nav_menu(array(
-					'theme_location' => 'global',
-					'container' => false,
-					'menu_class' => 'global',
-					'items_wrap' => '%3$s', // <ul>タグを出力しない
-					'walker' => new Walker_Nav_Menu_No_UL(), // カスタムウォーカーを使用
-				));
-				?>
-
+				<div class="header-menu">
+					<?php
+					wp_nav_menu(array(
+						'theme_location' => 'global',
+						'container' => false,
+						'menu_class' => 'global',
+						'items_wrap' => '%3$s', // <ul>タグを出力しない
+						'walker' => new Walker_Nav_Menu_No_UL(), // カスタムウォーカーを使用
+					));
+					?>
+				</div>
 			</div>
 		</div>
 
