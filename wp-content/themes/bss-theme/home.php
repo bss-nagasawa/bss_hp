@@ -44,37 +44,80 @@ get_header();
 			</div><!-- /#staff-interview -->
 
 			<div class="home-blog-content">
-				<div class="content-header">
+				<div class="content-header contentHeader-spacing">
 					<h3 class="content-header-title">BSSのことがもっとわかる！</h3>
 					<h4 class="content-header-ruby">Blog</h4>
 				</div>
 				<div id="president-blog" class="inner-content">
 					<!-- Note Blogの読み込み -->
-					<div class="inner">
+					<div class="inner uk-margin-large-bottom">
 						<?php get_template_part('parts/home/parts-note-blog'); ?>
 					</div>
 				</div><!-- /#president-blog -->
 
 				<div id="staff-blog" class="inner-content">
-					<div class="inner">
+					<div class="inner uk-margin-large-bottom">
 						<?php get_template_part('parts/home/parts-home-blog'); ?>
 					</div>
 				</div><!-- /#staff-blog -->
 			</div>
-			<div id="news" class="wide-content">
-				<div class="inner">
-					<div class="content-header">
-						<h3 class="content-header-title">お知らせ</h3>
-						<h4 class="content-header-ruby">News</h4>
+
+			<div id="news" class="inner-content uk-background-default">
+				<div class="round-bg-container">
+					<div class="inner uk-margin-large-bottom">
+						<div class="uk-flex uk-felx-wrap">
+							<div class="news-header news uk-flex uk-flex-center uk-flex-middle uk-flex-column">
+								<div class="content-header">
+									<h3 class="content-header-title">お知らせ</h3>
+									<h4 class="content-header-ruby">News</h4>
+								</div>
+								<div class="news-link-more">
+									<a href="#" class="btn btn-more tc-em uk-flex uk-flex-wrap uk-flex-center">もっと見る</a>
+								</div>
+							</div>
+
+							<div class="news-body">
+								<?php
+								// カスタムクエリを使用して投稿を取得
+								$args = array(
+									'post_type' => 'post',
+									'posts_per_page' => 4,
+								);
+								$news_query = new WP_Query($args);
+								if ($news_query->have_posts()):
+								?>
+									<div class="news-grid">
+										<?php
+										while ($news_query->have_posts()) : $news_query->the_post();
+											global $post;
+										?>
+											<div class="news-item">
+												<div class="news-item-tags">
+													<span class="date"><?php echo get_the_time('Y.m.d'); ?></span>
+													<?php
+													$categories = get_the_category();
+													if (!empty($categories)) {
+														foreach ($categories as $category) {
+															echo '<span class="category">' . esc_html($category->name) . '</span>';
+														}
+													} else {
+														echo 'カテゴリがありません';
+													}
+													?>
+												</div>
+												<p><?php the_title(); ?></p>
+											</div>
+										<?php
+										endwhile;
+										wp_reset_postdata(); // クエリをリセット
+										?>
+									</div>
+								<?php else : ?>
+									<p>投稿が見つかりません。</p>
+								<?php endif; ?>
+							</div>
+						</div>
 					</div>
-					<?php if (have_posts()): ?>
-						<?php while (have_posts()) : the_post(); ?>
-							<?php the_title(); ?>
-						<?php endwhile; ?>
-						<?php bones_page_navi(); ?>
-					<?php else : ?>
-						<p>投稿が見つかりません。</p>
-					<?php endif; ?>
 				</div>
 			</div><!-- /#news -->
 		</main>
