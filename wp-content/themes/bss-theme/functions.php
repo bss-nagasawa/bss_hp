@@ -317,6 +317,7 @@ function register_menus()
     array(
       'global' => __('Global'),
       'footer' => __('Footer'),
+      'copy' => __('Copylight'),
     )
   );
 }

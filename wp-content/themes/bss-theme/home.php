@@ -62,9 +62,9 @@ get_header();
 				</div><!-- /#staff-blog -->
 			</div>
 
-			<div id="news" class="inner-content uk-background-default">
-				<div class="round-bg-container">
-					<div class="inner uk-margin-large-bottom">
+			<div id="news" class="inner-content">
+				<div class="round-bg-container uk-background-default">
+					<div class="inner">
 						<div class="uk-flex uk-felx-wrap">
 							<div class="news-header news uk-flex uk-flex-center uk-flex-middle uk-flex-column">
 								<div class="content-header">

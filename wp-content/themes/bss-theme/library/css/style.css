@@ -1,4 +1,6 @@
 /** デザイン用CSS 編集はこのファイルでお願いします **/
+/*レスポンシブ対応は別ファイル*/
+@import url('media.css');
 /** uikitリセット **/
 * {box-sizing: border-box;}
 h1,h2,h3,h4,h5,p,ul,ol,li,dl,dt,dd,table,th,td,form,fieldset,legend,input,textarea,button,select{margin:0;padding:0;list-style: none;}
@@ -18,7 +20,7 @@ h1,h2,h3,h4,h5,p,ul,ol,li,dl,dt,dd,table,th,td,form,fieldset,legend,input,textar
 /*margi,padding*/
 .contentHeader-spacing {
     padding-top: 80px;
-    padding-bottom: 50px;
+    padding-bottom: 30px;
 }
 .contentHeader-spacing-small {
     padding-top: 37px;
@@ -32,7 +34,16 @@ h1,h2,h3,h4,h5,p,ul,ol,li,dl,dt,dd,table,th,td,form,fieldset,legend,input,textar
     background-color: #E5F1FD;
 }
 .round-bg-container {
-    background-image: url(../images/bg-round.png);
+    background-color: #fff; /* 背景色を白に設定 */
+    background-image:
+    url(../images/bg-round.png),
+    linear-gradient(
+        to bottom,
+        #fff 0%,
+        #fff 50%,
+        #E5F1FD 50%,
+        #E5F1FD 100%
+    );
     background-repeat: no-repeat;
     background-position: top center;
     background-size: 100%;
@@ -117,11 +128,13 @@ h1,h2,h3,h4,h5,p,ul,ol,li,dl,dt,dd,table,th,td,form,fieldset,legend,input,textar
         }
             .header-home-link {
                 display: block;
-                margin-left: 30px;
+                margin-left: 1em;
             }
             .logo-image {
                 display: block;
-                height: 85px;
+                height: calc(100vw * 85 / 1180);
+                max-height: 85px;
+                min-height: 50px;
                 width: auto;
             }
         .content-right {
@@ -140,19 +153,95 @@ h1,h2,h3,h4,h5,p,ul,ol,li,dl,dt,dd,table,th,td,form,fieldset,legend,input,textar
                     align-items: center;
                     text-decoration: none;
                     justify-content: center;
-                    padding: 0 30px;
+                    max-width: 140px;
+                    width:calc(100vw * 140 / 1180);
+                    min-width: 80px;
                     color: #000;
                 }
                     .header-menu a:hover {
                         text-decoration: none;
                     }
                 .header-menu a:last-child {
-                    width: 220px;
+                    max-width: 220px;
+                    min-width: 148px;
+                    width:calc(100vw * 220 / 1180);
                     background-color: #0B60B4;
                     color: #fff;
-                    margin-left: 30px;
+                    margin-left: 2em;
                 }
-
+/* footer */
+.footer {
+    background-color: #fff;
+}
+.footer-content {
+    background: linear-gradient(
+        to right,
+        rgba(0, 0, 0, 0) 0%,
+        rgba(0, 0, 0, 0) calc((100vw - 1080px) / 2 + 720px),
+        #0B60B4 calc((100vw - 1080px) / 2  + 720px),
+        #54A2F0 100%
+    );
+}
+    .footer-content-wrap {
+        padding-right: 60px;
+        padding-top: 80px;
+    }
+    .footer-access {
+        width: calc(1080px - 340px);
+    }
+    .footer-content-wrap .container-logo {
+        width: 260px;
+        border-right:1px solid rgba(8,40,72,.1);
+        padding-right: 10px;
+        margin-right: 20px;
+    }
+    .footer-content-wrap .container-pmark {
+        width: 66px;
+    }
+    .footer-content-wrap .container-access {
+        width: calc(100% - 260px - 66px - 20px);
+        font-size: 14px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+    }
+    .footer-links {
+        width: 340px;
+        padding-top: 80px;
+        display: flex;
+        flex-direction: column;
+        padding-left: 35px;
+    }
+        .footer-links a {
+            color: #fff;
+            margin-bottom: 0.75em;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+        }
+        .footer-links a:before {
+            content: "";
+            display: block;
+            width: 15px;
+            height: 15px;
+            background-image: url(../images/icon/btn-arrow-06.png);
+            background-size: 100%;
+            background-position: center;
+            background-repeat: no-repeat;
+            margin-right: 0.5em;
+        }
+.copy-container {
+    background-color: #54A2F0;
+    color: #fff;
+    padding: 0.25em 0;
+}
+.copy-container * {
+    color: #fff;
+    font-size: 12px;
+}
+.copy-links a {
+    margin-right: 1.5em;
+}
 /** ファイル別 **/
 /* home */
 #home-content {
@@ -231,7 +320,7 @@ h1,h2,h3,h4,h5,p,ul,ol,li,dl,dt,dd,table,th,td,form,fieldset,legend,input,textar
 .images-childs-card {
     width: 420px;
     border-radius: 40px;
-    padding: 40px;
+    padding: 20px 40px;
 }
     .images-childs-card img {
         display: block;
@@ -509,6 +598,7 @@ h1,h2,h3,h4,h5,p,ul,ol,li,dl,dt,dd,table,th,td,form,fieldset,legend,input,textar
         }
     #news .round-bg-container {
         padding: 120px 0 80px 0;
+
     }
     .news-header.news {
         width: 270px;
