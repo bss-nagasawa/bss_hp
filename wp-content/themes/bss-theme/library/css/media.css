@@ -1,0 +1,38 @@
+.pc {
+    display: unset;
+}
+.sp {
+    display: none;
+}
+/* 画面幅が1080px以下の場合のスタイル */
+@media (max-width: 1080px) {
+    .pc {
+        display: unset;
+    }
+    .sp {
+        display: none;
+    }
+}
+
+/* 画面幅が800px以下の場合のスタイル */
+@media (max-width: 800px) {
+    .pc {
+        display: none;
+    }
+    .sp {
+        display: unset;
+    }
+    .header-content .header-menu {
+        display: none;
+    }
+}
+
+/* 画面幅が640px以下の場合のスタイル */
+@media (max-width: 640px) {
+    .pc {
+        display: none;
+    }
+    .sp {
+        display: unset;
+    }
+}
