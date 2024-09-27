@@ -234,26 +234,29 @@ function load_note_posts()
   $posts = get_note_posts($page);
 
   if (!empty($posts['contents'])) {
-    $output = '<ul>';
+    $output = '<div class="uk-flex uk-felx-wrap uk-flex-row-reverse uk-flex-right">';
+    $output .= '<ul class="blog-body">';
     $start_index = ($page == 1) ? 1 : 0;
     for ($index = $start_index; $index < count($posts['contents']); $index++) {
       $post = $posts['contents'][$index];
-      $date = date('Y-m-d', strtotime($post['publishAt']));
+      $date = date('Y.m.d', strtotime($post['publishAt']));
       $title = esc_html($post['name']);
       $url = esc_url($post['noteUrl']);
-      $output .= "<li><span class='date'>{$date}</span> - <a href='{$url}' target='_blank'>{$title}</a></li>";
+      $output .= "<li class='blog-list-nomal'><span class='date'>{$date}</span> <a href='{$url}' target='_blank' class='title'>{$title}</a></li>";
     }
     $output .= '</ul>';
-    $output .= '<div class="pagination">';
+    $output .= '<div class="blog-header president uk-flex uk-flex-center uk-flex-middle">';
+    $output .= '<h3>社長ブログ</h3>';
+    $output .= '<div class="pagination uk-flex">';
     if ($page > 1) {
-      $output .= '<a href="#" class="prev-page" data-page="' . ($page - 1) . '">前のページ</a>';
+      $output .= '<a href="#" class="prev-page btn-prev" data-page="' . ($page - 1) . '"></a>';
     }
     // 次のページが存在するかどうかを判断
     $next_page_posts = get_note_posts($page + 1);
     if (!empty($next_page_posts['contents'])) {
-      $output .= '<a href="#" class="next-page" data-page="' . ($page + 1) . '">次のページ</a>';
+      $output .= '<a href="#" class="next-page btn-next" data-page="' . ($page + 1) . '"></a>';
     }
-    $output .= '</div>';
+    $output .= '</div></div></div>';
   } else {
     $output = '<p>投稿がありません。</p>';
   }
@@ -265,25 +268,40 @@ function load_note_posts()
 add_action('wp_ajax_load_note_posts', 'load_note_posts');
 add_action('wp_ajax_nopriv_load_note_posts', 'load_note_posts');
 
-// 投稿タイプのパーマリンクを設定
-function custom_post_type_permalink($post_link, $post)
-{
-  if (is_object($post) && $post->post_type == 'staff-interview') {
-    return home_url('staff-interview/' . $post->ID);
-  }
-  return $post_link;
-}
-add_filter('post_type_link', 'custom_post_type_permalink', 1, 2);
-
-// 投稿タイプのパーマリンクのリライトルールの設定
+// カスタムポストタイプのリライトルールを追加
 function custom_post_type_rewrite_rules($rules)
 {
   $new_rules = array(
-    'staff-interview/([0-9]+)$' => 'index.php?post_type=staff-interview&p=$matches[1]',
+    'staff-interview/([0-9]+)/?$' => 'index.php?post_type=staff-interview&p=$matches[1]',
+    'staff-blog/([0-9]+)/?$' => 'index.php?post_type=staff-blog&p=$matches[1]',
+    'faq/([0-9]+)/?$' => 'index.php?post_type=faq&p=$matches[1]',
   );
   return $new_rules + $rules;
 }
 add_filter('rewrite_rules_array', 'custom_post_type_rewrite_rules');
+
+// カスタムポストタイプのパーマリンクを設定
+function custom_post_type_permalinks($post_link, $post)
+{
+  if (is_object($post) && 'staff-interview' == $post->post_type) {
+    return home_url('staff-interview/' . $post->ID . '/');
+  }
+  if (is_object($post) && 'staff-blog' == $post->post_type) {
+    return home_url('staff-blog/' . $post->ID . '/');
+  }
+  if (is_object($post) && 'faq' == $post->post_type) {
+    return home_url('faq/' . $post->ID . '/');
+  }
+  return $post_link;
+}
+add_filter('post_type_link', 'custom_post_type_permalinks', 1, 2);
+
+// カスタムポストタイプのリライトルールをフラッシュ
+function custom_post_type_flush_rewrite_rules()
+{
+  flush_rewrite_rules();
+}
+add_action('init', 'custom_post_type_flush_rewrite_rules', 20);
 
 //テーマディレクトリ内の画像フォルダのURL定義
 function theme_image_directory()
@@ -299,6 +317,7 @@ function register_menus()
     array(
       'global' => __('Global'),
       'footer' => __('Footer'),
+      'copy' => __('Copylight'),
     )
   );
 }

@@ -3,7 +3,7 @@
     <h4 class="content-header-ruby">About Us</h4>
 </div>
 <div class="content-body content-about">
-    <p class="uk-text-small uk-text-center uk-margin-large-bottom line2">エンジニアのキャリアアップを全面サポートします。<br>
+    <p class="uk-text-small uk-text-center uk-margin-bottom line2">エンジニアのキャリアアップを全面サポートします。<br>
         エンジニアの成長は企業の成長という考えのもと、<br>案件選択や定期的なキャリアサポート面談をはじめキャリアアップしやすい環境づくりに注力。<br>
         業界最高水準の還元率を誇っており、社員には報酬額はもちろん様々な福利厚生でバックアップ！
     </p>

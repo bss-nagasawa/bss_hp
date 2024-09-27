@@ -1,4 +1,6 @@
 /** デザイン用CSS 編集はこのファイルでお願いします **/
+/*レスポンシブ対応は別ファイル*/
+@import url('media.css');
 /** uikitリセット **/
 * {box-sizing: border-box;}
 h1,h2,h3,h4,h5,p,ul,ol,li,dl,dt,dd,table,th,td,form,fieldset,legend,input,textarea,button,select{margin:0;padding:0;list-style: none;}
@@ -18,7 +20,7 @@ h1,h2,h3,h4,h5,p,ul,ol,li,dl,dt,dd,table,th,td,form,fieldset,legend,input,textar
 /*margi,padding*/
 .contentHeader-spacing {
     padding-top: 80px;
-    padding-bottom: 50px;
+    padding-bottom: 30px;
 }
 .contentHeader-spacing-small {
     padding-top: 37px;
@@ -31,6 +33,21 @@ h1,h2,h3,h4,h5,p,ul,ol,li,dl,dt,dd,table,th,td,form,fieldset,legend,input,textar
 .bg-bgray {
     background-color: #E5F1FD;
 }
+.round-bg-container {
+    background-color: #fff; /* 背景色を白に設定 */
+    background-image:
+    url(../images/bg-round.png),
+    linear-gradient(
+        to bottom,
+        #fff 0%,
+        #fff 50%,
+        #E5F1FD 50%,
+        #E5F1FD 100%
+    );
+    background-repeat: no-repeat;
+    background-position: top center;
+    background-size: 100%;
+}
 /*common-font*/
 .tc-em {
     color: #0B60B4;
@@ -40,6 +57,12 @@ h1,h2,h3,h4,h5,p,ul,ol,li,dl,dt,dd,table,th,td,form,fieldset,legend,input,textar
 }
 .tc-white {
     color: #fff;
+}
+.tc-white:hover {
+    color: #fff;
+}
+.tc-bk {
+    color: #000;
 }
 .line15 {
     line-height: 1.5em;
@@ -90,6 +113,7 @@ h1,h2,h3,h4,h5,p,ul,ol,li,dl,dt,dd,table,th,td,form,fieldset,legend,input,textar
     position: sticky;
     top: 0;
     left: 0;
+    z-index: 999;
     box-shadow: 0 4px 4px rgba(0,0,0,0.1);
 }
     .header-content {
@@ -104,11 +128,13 @@ h1,h2,h3,h4,h5,p,ul,ol,li,dl,dt,dd,table,th,td,form,fieldset,legend,input,textar
         }
             .header-home-link {
                 display: block;
-                margin-left: 30px;
+                margin-left: 1em;
             }
             .logo-image {
                 display: block;
-                height: 85px;
+                height: calc(100vw * 85 / 1180);
+                max-height: 85px;
+                min-height: 50px;
                 width: auto;
             }
         .content-right {
@@ -127,19 +153,95 @@ h1,h2,h3,h4,h5,p,ul,ol,li,dl,dt,dd,table,th,td,form,fieldset,legend,input,textar
                     align-items: center;
                     text-decoration: none;
                     justify-content: center;
-                    padding: 0 30px;
+                    max-width: 140px;
+                    width:calc(100vw * 140 / 1180);
+                    min-width: 80px;
                     color: #000;
                 }
                     .header-menu a:hover {
                         text-decoration: none;
                     }
                 .header-menu a:last-child {
-                    width: 220px;
+                    max-width: 220px;
+                    min-width: 148px;
+                    width:calc(100vw * 220 / 1180);
                     background-color: #0B60B4;
                     color: #fff;
-                    margin-left: 30px;
+                    margin-left: 2em;
                 }
-
+/* footer */
+.footer {
+    background-color: #fff;
+}
+.footer-content {
+    background: linear-gradient(
+        to right,
+        rgba(0, 0, 0, 0) 0%,
+        rgba(0, 0, 0, 0) calc((100vw - 1080px) / 2 + 720px),
+        #0B60B4 calc((100vw - 1080px) / 2  + 720px),
+        #54A2F0 100%
+    );
+}
+    .footer-content-wrap {
+        padding-right: 60px;
+        padding-top: 80px;
+    }
+    .footer-access {
+        width: calc(1080px - 340px);
+    }
+    .footer-content-wrap .container-logo {
+        width: 260px;
+        border-right:1px solid rgba(8,40,72,.1);
+        padding-right: 10px;
+        margin-right: 20px;
+    }
+    .footer-content-wrap .container-pmark {
+        width: 66px;
+    }
+    .footer-content-wrap .container-access {
+        width: calc(100% - 260px - 66px - 20px);
+        font-size: 14px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+    }
+    .footer-links {
+        width: 340px;
+        padding-top: 80px;
+        display: flex;
+        flex-direction: column;
+        padding-left: 35px;
+    }
+        .footer-links a {
+            color: #fff;
+            margin-bottom: 0.75em;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+        }
+        .footer-links a:before {
+            content: "";
+            display: block;
+            width: 15px;
+            height: 15px;
+            background-image: url(../images/icon/btn-arrow-06.png);
+            background-size: 100%;
+            background-position: center;
+            background-repeat: no-repeat;
+            margin-right: 0.5em;
+        }
+.copy-container {
+    background-color: #54A2F0;
+    color: #fff;
+    padding: 0.25em 0;
+}
+.copy-container * {
+    color: #fff;
+    font-size: 12px;
+}
+.copy-links a {
+    margin-right: 1.5em;
+}
 /** ファイル別 **/
 /* home */
 #home-content {
@@ -218,7 +320,7 @@ h1,h2,h3,h4,h5,p,ul,ol,li,dl,dt,dd,table,th,td,form,fieldset,legend,input,textar
 .images-childs-card {
     width: 420px;
     border-radius: 40px;
-    padding: 40px;
+    padding: 20px 40px;
 }
     .images-childs-card img {
         display: block;
@@ -305,8 +407,9 @@ h1,h2,h3,h4,h5,p,ul,ol,li,dl,dt,dd,table,th,td,form,fieldset,legend,input,textar
         border-radius: 0 125px 0 0;
     }
 .interview-content-container {
-    background-color: #fff;
+    background-color: rgba(255,255,255,0.95);
     position: relative;
+    box-shadow: 0px 4px 4px rgba(0,0,0,0.1);
 }
 .content-header.content-interview {
     position: sticky;
@@ -320,9 +423,45 @@ h1,h2,h3,h4,h5,p,ul,ol,li,dl,dt,dd,table,th,td,form,fieldset,legend,input,textar
     position: sticky;
     z-index: 10;
 }
-    .custom-post-item-interview {
-        width: 500px;
+    .item-container {
+        width: 1080px;
+        margin: 0 auto;
     }
+        .custom-post-item-interview {
+            margin: 0 15px;
+            box-shadow: 2px 4px 4px rgba(0,0,0,0.1);
+            border-radius: 20px;
+            overflow: hidden;
+            width: calc(100% / 3 - 30px);
+        }
+            .custom-post-thumbnail {
+                width: 100%;
+                height: 240px;
+                overflow: hidden;
+            }
+            .custom-post-item-interview a {
+                color: #000;
+                text-decoration: none;
+            }
+                .custom-post-item-interview a:hover {
+                    color: #000;
+                    text-decoration: none;
+                }
+                .custom-post-thumbnail img {
+                    display: block;
+                    width: 100%;
+                    height: auto;
+                }
+            .custom-post-head {
+                padding: 35px 20px;
+            }
+                .custom-post-title {
+                    font-size: 16px;
+                    font-weight: bold;
+                }
+                .custom-post-tags {
+                    font-size: 24px;
+                }
 .interview-content-wrap {
     width: 100%;
     height: 270px;
@@ -335,4 +474,186 @@ h1,h2,h3,h4,h5,p,ul,ol,li,dl,dt,dd,table,th,td,form,fieldset,legend,input,textar
     top: 0;
     left: 0;
 }
+.home-blog-content {
+    background-color: rgba(255,255,255,1);
+    margin-top: 125px;
+    padding-bottom: 40px;
+}
+    .blog-header {
+        width: 230px;
+        margin-right: 50px;
+        flex-flow: column;
+        border-radius:30px 0 0 30px;
+    }
+    .blog-header.president {
+        background-color: #0B60B4;
+    }
+        .blog-header h3 {
+            color: #fff;
+            margin-bottom: 35px;
+        }
+        .btn-next:before {
+            content: "";
+            display: block;
+            width: 50px;
+            height: 50px;
+            background-image: url(../images/icon/btn-arrow-01.png);
+            background-size: 100%;
+            background-repeat: no-repeat;
+        }
+        .btn-prev {
+            margin-right: 15px;
+        }
+        .btn-prev:before {
+            content: "";
+            display: block;
+            width: 50px;
+            height: 50px;
+            background-image: url(../images/icon/btn-arrow-01.png);
+            background-size: 100%;
+            background-repeat: no-repeat;
+            transform: rotate(180deg);
+        }
+    .blog-body {
+        width: calc(100% - 230px);
+    }
+        .blog-list-nomal {
+            display: flex;
+            flex-wrap: wrap;
+            padding: 1.6em 0;
+            border-bottom: 1px solid rgba(8,40,72,.3);
+        }
+            .blog-list-nomal:last-child {
+                border-bottom: none;
+            }
+        .blog-list-nomal .date {
+            width: 125px;
+            display: block;
+        }
+        .blog-list-nomal .title {
+            width: calc(100% - 125px);
+            display: block;
+            color: #000;
+        }
+            .blog-list-nomal .title:hover {
+                color: #0B60B4;
+            }
+    .custom-post-item-blog {
+        width: 250px;
+        margin: 0 0 0 20px;
+    }
+    .custom-post-item-blog .custom-post-thumbnail {
+        border-radius: 25px;
+        overflow: hidden;
+        height: 180px;
+    }
+        .custom-post-item-blog .custom-post-title {
+            padding: 10px;
+        }
+        .custom-post-item-blog .custom-post-title a {
+            text-decoration: none;
+        }
+            .custom-post-title a:hover {
+                text-decoration: none;
+            }
+        .custom-post-item-blog .date {
+            font-size: 14px;
+            color: #000;
+            font-weight: normal;
+        }
+        .custom-post-item-blog .category {
+            font-size: 14px;
+            color: #fff;
+            background-color: #F89200;
+            border-radius: 5px;
+            font-weight: 100;
+            padding: 0.25em .75em;
+            margin-left: 1em;
+        }
+        .custom-post-item-blog .post-title {
+            font-weight: normal;
+        }
+    .blog-header.employ {
+        background-color: #FFA729;
+    }
+    .blog-header.employ .btn-more {
+        border: 1px solid #fff;
+        width: 166px;
+        border-radius:35px;
+        padding: .5em 0;
+        display: flex;
+        flex-wrap: nowrap;
+        justify-content: center;
+        align-items: center;
+    }
+        .blog-header.employ .btn-more:after {
+            content: "";
+            display: block;
+            width: 25px;
+            height: 25px;
+            background-image: url(../images/icon/btn-arrow-04.png);
+            background-size: 100%;
+            background-repeat: no-repeat;
+            margin-left: 12px;
+        }
+    #news .round-bg-container {
+        padding: 120px 0 80px 0;
+
+    }
+    .news-header.news {
+        width: 270px;
+    }
+        .news-link-more a {
+            width: 263px;
+            border: 1px solid #0B60B4;
+            border-radius: 25px;
+            padding: 0.5em 0;
+            margin-top: 55px;
+        }
+            .news-link-more a:after {
+                content: "";
+                display: block;
+                width: 25px;
+                height: 25px;
+                background-image: url(../images/icon/btn-arrow-05.png);
+                background-size: 100%;
+                background-repeat: no-repeat;
+                margin-left: 12px;
+            }
+    .news-body {
+        width: calc(100% - 270px);
+        padding-left: 55px;
+    }
+        .news-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+            .news-item {
+                background-color: #fff;
+                border-radius: 10px;
+                padding: 25px;
+                font-size: 14px;
+            }
+                .news-item-tags {
+                    display: flex;
+                    justify-content: space-between;
+                }
+                    .news-item-tags .date {
+                        color: #54A2F0;
+                    }
+                    .news-item-tags .category {
+                        color: #fff;
+                        background-color: #F89200;
+                        border-radius: 5px;
+                        padding: 0.25em .75em;
+                        font-weight: 100;
+                        margin-right: 1em;
+                    }
+                    .news-item-tags .category a {
+                        color: #fff;
+                    }
+                        .news-item-tags .category a:hover {
+                            color: #fff;
+                        }
 /** レスポンシブ **/
