@@ -1,4 +1,4 @@
-			<footer id="footer" class="footer sp" role="contentinfo" itemscope itemtype="http://schema.org/WPFooter">
+			<footer id="footer" class="footer" role="contentinfo" itemscope itemtype="http://schema.org/WPFooter">
 				<div class="footer-content">
 					<div class="inner">
 						<div class="footer-container uk-flex uk-flex-wrap ">
