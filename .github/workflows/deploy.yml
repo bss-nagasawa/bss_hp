@@ -1,29 +1,33 @@
-# name: Deploy to Sakura Server
+on:
+  push:
+    branches:
+      - main
 
-# on:
-#   push:
-#     branches:
-#       - main
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
 
-# jobs:
-#   deploy:
-#     runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
 
-#     steps:
-#     - name: Checkout code
-#       uses: actions/checkout@v2
+      - name: Install lftp
+        run: sudo apt-get install -y lftp
 
-#     - name: Install lftp
-#       run: sudo apt-get install -y lftp
+      - name: Load .env file
+        run: |
+          set -a
+          source .env
+          set +a
 
-#     - name: Deploy to Sakura Server
-#       env:
-#         FTP_HOST: ${{ secrets.SAKURA_FTP_HOST }}
-#         FTP_USERNAME: ${{ secrets.SAKURA_FTP_USERNAME }}
-#         FTP_PASSWORD: ${{ secrets.SAKURA_FTP_PASSWORD }}
-#       run: |
-#         lftp -c "
-#         open -u $FTP_USERNAME,$FTP_PASSWORD $FTP_HOST;
-#         mirror --reverse --delete --verbose ./ /path/to/remote/directory;
-#         bye
-#         "
+      - name: Deploy to Sakura Server
+        env:
+          FTP_HOST: ${{ secrets.FTP_HOST }}
+          FTP_USERNAME: ${{ secrets.FTP_USERNAME }}
+          FTP_PASSWORD: ${{ secrets.FTP_PASSWORD }}
+        run: |
+          lftp -c "
+          open -u $FTP_USERNAME,$FTP_PASSWORD $FTP_HOST;
+          mirror --reverse --delete --verbose ./ /path/to/remote/directory;
+          bye
+          "
