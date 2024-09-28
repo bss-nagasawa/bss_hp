@@ -34,7 +34,7 @@
             </div>
             <div class="lists-image">
                 <div class="image-wrap">
-                    <img src="<?php echo theme_image_directory(); ?>/home/feature01.png">
+                    <img src="<?php echo theme_image_directory(); ?>/home/feature02.png">
                 </div>
             </div>
         </li>
@@ -52,7 +52,7 @@
             </div>
             <div class="lists-image">
                 <div class="image-wrap">
-                    <img src="<?php echo theme_image_directory(); ?>/home/feature01.png">
+                    <img src="<?php echo theme_image_directory(); ?>/home/feature03.png">
                 </div>
             </div>
         </li>
@@ -71,7 +71,7 @@
             </div>
             <div class="lists-image">
                 <div class="image-wrap">
-                    <img src="<?php echo theme_image_directory(); ?>/home/feature01.png">
+                    <img src="<?php echo theme_image_directory(); ?>/home/feature04.png">
                 </div>
             </div>
         </li>
