@@ -9,7 +9,7 @@ jobs:
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
 
       - name: Install lftp
         run: sudo apt-get install -y lftp
@@ -19,6 +19,12 @@ jobs:
           set -a
           source .env
           set +a
+
+      - name: Verify .env variables
+        run: |
+          echo "FTP_HOST=$FTP_HOST"
+          echo "FTP_USERNAME=$FTP_USERNAME"
+          echo "FTP_PASSWORD=$FTP_PASSWORD"
 
       - name: Deploy to Sakura Server
         env:
@@ -30,4 +36,4 @@ jobs:
           open -u $FTP_USERNAME,$FTP_PASSWORD $FTP_HOST;
           mirror --reverse --delete --verbose ./ /path/to/remote/directory;
           bye
-          "
+          " || exit 1
