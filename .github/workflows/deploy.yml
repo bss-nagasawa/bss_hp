@@ -11,29 +11,14 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
 
-      - name: Install lftp
-        run: sudo apt-get install -y lftp
+      - name: Install SSH client
+        run: sudo apt-get install -y openssh-client
 
-      - name: Load .env file
-        run: |
-          set -a
-          source .env
-          set +a
-
-      - name: Verify .env variables
-        run: |
-          echo "FTP_HOST=$FTP_HOST"
-          echo "FTP_USERNAME=$FTP_USERNAME"
-          echo "FTP_PASSWORD=$FTP_PASSWORD"
+      - name: Add SSH key
+        uses: webfactory/ssh-agent@v0.5.3
+        with:
+          ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
 
       - name: Deploy to Sakura Server
-        env:
-          FTP_HOST: ${{ secrets.FTP_HOST }}
-          FTP_USERNAME: ${{ secrets.FTP_USERNAME }}
-          FTP_PASSWORD: ${{ secrets.FTP_PASSWORD }}
         run: |
-          lftp -c "
-          open -u $FTP_USERNAME,$FTP_PASSWORD $FTP_HOST;
-          mirror --reverse --delete --verbose ./ /path/to/remote/directory;
-          bye
-          " || exit 1
+          rsync -avz --delete -e "ssh -o StrictHostKeyChecking=no" ./ bss@bss.sakura.ne.jp:/path/to/remote/directory
