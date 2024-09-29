@@ -68,7 +68,7 @@ get_header();
 						<div class="uk-flex uk-felx-wrap">
 							<div class="news-header news uk-flex uk-flex-center uk-flex-middle uk-flex-column">
 								<div class="content-header">
-									<h3 class="content-header-title">お知らせTEST</h3>
+									<h3 class="content-header-title">お知らせ</h3>
 									<h4 class="content-header-ruby">News</h4>
 								</div>
 								<div class="news-link-more">
