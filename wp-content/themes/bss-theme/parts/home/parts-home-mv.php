@@ -13,3 +13,7 @@
         <img src="<?php echo theme_image_directory(); ?>/home/mv01.png" alt="メインビジュアル｜駆け上がるビジネスマン">
     </div>
 </div>
+<div class="mv-btn-wrap-sp">
+    <a href="#" class="btn btn-mc tc-white">採用情報</a>
+    <a href="#" class="btn btn-sc tc-white">エントリー</a>
+</div>
