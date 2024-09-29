@@ -92,7 +92,7 @@ h1,h2,h3,h4,h5,p,ul,ol,li,dl,dt,dd,table,th,td,form,fieldset,legend,input,textar
 }
 .content-header .content-header-title {
     color: #0B60B4;
-    font-size: 36px;
+    font-size: clamp(18px, 3.4vw, 36px);
     font-weight: bold;
 }
 .content-header .content-header-ruby {
@@ -249,11 +249,9 @@ h1,h2,h3,h4,h5,p,ul,ol,li,dl,dt,dd,table,th,td,form,fieldset,legend,input,textar
     background-repeat: repeat;
     background-attachment: fixed;
 }
-#main-visual {
-    height: 500px;
-}
     .mv-inner {
-        width: 1080px;
+        width: 100%;
+        max-width: 1080px;
         margin: 0 auto;
         display: flex;
         flex-wrap: wrap;
@@ -262,27 +260,30 @@ h1,h2,h3,h4,h5,p,ul,ol,li,dl,dt,dd,table,th,td,form,fieldset,legend,input,textar
             width: 570px;
         }
         .mv-left-content {
-            margin-top: 49px;
+            margin-top: clamp(24px, 5vw, 49px);
         }
             .mv-headline {
-                font-size: 56px;
+                font-size: clamp(24px, 5.2vw, 56px);
                 font-weight: bold;
                 line-height: 1.4em;
             }
             .mv-description {
                 font-weight: 500;
                 margin-top: 20px;
+                font-size: clamp(16px, 2vw, 24px);
             }
             .mv-btn-wrap {
                 margin-top: 43px;
             }
                 .mv-left-content .btn {
                     width: 270px;
-                    font-size: 24px;
+                    font-size: clamp(16px, 2vw, 24px);
                     font-weight: 500;
-                    height: 65px;
+                    padding: 1vw 0;
                     border-radius: 65px;
-                    position: relative;padding-right: 1em;
+                    padding-right: 1em;
+                    display: flex;
+                    justify-content: flex-end;
                 }
                 .mv-left-content .btn:hover {
                     color: #fff;
@@ -298,9 +299,7 @@ h1,h2,h3,h4,h5,p,ul,ol,li,dl,dt,dd,table,th,td,form,fieldset,legend,input,textar
                     background-image: url(../images/icon/btn-01.png);
                     background-size: 100%;
                     background-repeat: no-repeat;
-                    position: absolute;
-                    right: 27px;
-                    top: 15px;
+                    margin: 0 1em;
                 }
                 .mv-left-content .btn-sc:after {
                     content: "";
@@ -310,12 +309,13 @@ h1,h2,h3,h4,h5,p,ul,ol,li,dl,dt,dd,table,th,td,form,fieldset,legend,input,textar
                     background-image: url(../images/icon/btn-02.png);
                     background-size: 100%;
                     background-repeat: no-repeat;
-                    position: absolute;
-                    right: 27px;
-                    top: 15px;
+                    margin: 0 1em;
                 }
         .mv-inner-right {
             width: calc(100% - 570px);
+        }
+        .mv-btn-wrap-sp {
+            display: none;
         }
 .images-childs-card {
     width: 420px;
@@ -330,12 +330,12 @@ h1,h2,h3,h4,h5,p,ul,ol,li,dl,dt,dd,table,th,td,form,fieldset,legend,input,textar
         margin-bottom: 24px;
     }
         .card-title {
-            font-size: 36px;
+            font-size: clamp(18px, 3.4vw, 36px);
             font-weight: bold;
             letter-spacing: 0.25em;
         }
         .card-head {
-            font-size: 24px;
+            font-size: clamp(16px, 2vw, 24px);
             font-weight: bold;
         }
 .lists-article {
@@ -345,7 +345,7 @@ h1,h2,h3,h4,h5,p,ul,ol,li,dl,dt,dd,table,th,td,form,fieldset,legend,input,textar
         width: calc(100% - 33px);
     }
         .list-head {
-            font-size: 24px;
+            font-size: clamp(16px, 2vw, 24px);
             font-weight: bold;
         }
         .lists-article {
@@ -424,7 +424,8 @@ h1,h2,h3,h4,h5,p,ul,ol,li,dl,dt,dd,table,th,td,form,fieldset,legend,input,textar
     z-index: 10;
 }
     .item-container {
-        width: 1080px;
+        width: 100%;
+        max-width: 1080px;
         margin: 0 auto;
     }
         .custom-post-item-interview {
@@ -456,11 +457,11 @@ h1,h2,h3,h4,h5,p,ul,ol,li,dl,dt,dd,table,th,td,form,fieldset,legend,input,textar
                 padding: 35px 20px;
             }
                 .custom-post-title {
-                    font-size: 16px;
+                    font-size: clamp(12px, 1.5vw, 16px);
                     font-weight: bold;
                 }
                 .custom-post-tags {
-                    font-size: 24px;
+                    font-size: clamp(16px, 2vw, 24px);
                 }
 .interview-content-wrap {
     width: 100%;
@@ -557,7 +558,7 @@ h1,h2,h3,h4,h5,p,ul,ol,li,dl,dt,dd,table,th,td,form,fieldset,legend,input,textar
                 text-decoration: none;
             }
         .custom-post-item-blog .date {
-            font-size: 14px;
+            font-size: clamp(16px, 2vw, 24px);
             color: #000;
             font-weight: normal;
         }
@@ -657,3 +658,6 @@ h1,h2,h3,h4,h5,p,ul,ol,li,dl,dt,dd,table,th,td,form,fieldset,legend,input,textar
                             color: #fff;
                         }
 /** レスポンシブ **/
+iframe {
+    display: none !important;
+}

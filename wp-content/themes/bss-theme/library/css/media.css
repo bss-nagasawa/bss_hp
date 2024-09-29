@@ -5,17 +5,32 @@
     display: none;
 }
 /* 画面幅が1080px以下の場合のスタイル */
-@media (max-width: 1080px) {
+@media screen and (max-width: 1080px) {
     .pc {
         display: unset;
     }
     .sp {
         display: none;
     }
+    #main-visual {
+        height: unset;
+    }
+    #main-visual .mv-inner-left {
+        width: 60%;
+    }
+    #main-visual .mv-inner-right {
+        width: 40%;
+    }
+    .mv-left-content { 
+        padding: 0 2vw;
+    }
+    .mv-left-content .mv-btn-wrap {
+        margin-top: 2vw;
+    }
 }
 
 /* 画面幅が800px以下の場合のスタイル */
-@media (max-width: 800px) {
+@media screen and (max-width: 800px) {
     .pc {
         display: none;
     }
@@ -25,14 +40,54 @@
     .header-content .header-menu {
         display: none;
     }
+    #main-visual .mv-inner-left {
+        width: 53%;
+    }
+    #main-visual .mv-inner-right {
+        width: 47%;
+    }
+    .mv-left-content .mv-btn-wrap {
+        flex-direction: column;
+    }
+    .mv-inner-left .mv-left-content .btn {
+        justify-content: center;
+    }
+    .mv-left-content .btn-sc {
+        margin-top: 1em;
+    }
+    #news .news-grid {
+        grid-template-columns: repeat(1, 1fr);
+        gap: 10px;
+    }
+    #staff-blog .inner > .uk-flex-row-reverse,
+    #note-posts > .uk-flex-row-reverse {
+        flex-direction: column-reverse;
+    }
+    #news .inner > .uk-flex {
+        flex-direction: column;
+    }
 }
 
 /* 画面幅が640px以下の場合のスタイル */
-@media (max-width: 640px) {
+@media screen and (max-width: 640px) {
     .pc {
         display: none;
     }
     .sp {
         display: unset;
+    }
+    #main-visual .mv-btn-wrap-sp {
+        display: block;
+    }
+    #main-visual .mv-btn-wrap {
+        display: none;
+    }
+    #main-visual .mv-inner-left {
+        width: 84vw;
+        margin: 0 auto;
+    }
+    #main-visual .mv-inner-right {
+        width: 64vw;
+        margin: 0 auto;
     }
 }
