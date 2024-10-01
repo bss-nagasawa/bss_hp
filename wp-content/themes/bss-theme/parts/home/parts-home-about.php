@@ -9,13 +9,13 @@
     </p>
     <div class="content-about-images">
         <ul class="images-childs uk-flex uk-flex-wrap uk-flex-center uk-text-center">
-            <li class="images-childs-card uk-background-default uk-margin-medium-right">
+            <li class="images-childs-card uk-background-default">
                 <p class="card-title tc-em">Vision</p>
                 <img src="<?php echo theme_image_directory(); ?>/home/vision.png" alt="未来を見据えるビジネスマン" class="uk-margin-auto">
                 <h4 class="card-head uk-margin-small-bottom">BSSが<span class="tc-sem">目指す世界</span></h4>
                 <p class="uk-text-small">今までの自分を超える未来</p>
             </li>
-            <li class="images-childs-card uk-background-default uk-margin-medium-left">
+            <li class="images-childs-card uk-background-default">
                 <p class="card-title tc-em">Mission</p>
                 <img src="<?php echo theme_image_directory(); ?>/home/mission.png" alt="寄り添うコンサルタント" class="uk-margin-auto">
                 <h4 class="card-head uk-margin-small-bottom">そのために<span class="tc-sem">実現</span>すること</h4>

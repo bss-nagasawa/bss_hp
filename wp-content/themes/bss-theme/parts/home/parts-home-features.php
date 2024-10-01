@@ -4,7 +4,7 @@
 </div>
 <div class="content-body content-features">
     <ul class="content-features-lists">
-        <li class="uk-flex uk-flex-wrap uk-child-width-1-2 uk-margin-large-bottom">
+        <li class="uk-flex uk-flex-wrap uk-margin-large-bottom">
             <div class="lists-article uk-flex uk-flex-wrap">
                 <div>
                     <h3 class="list-head tc-em uk-margin-bottom">
@@ -15,13 +15,13 @@
                     </p>
                 </div>
             </div>
-            <div class="lists-image">
+            <div class="lists-image uk-flex uk-flex-right">
                 <div class="image-wrap">
                     <img src="<?php echo theme_image_directory(); ?>/home/feature01.png">
                 </div>
             </div>
         </li>
-        <li class="uk-flex uk-flex-wrap uk-child-width-1-2 uk-margin-large-bottom reverse">
+        <li class="uk-flex uk-flex-wrap uk-margin-large-bottom reverse">
             <div class="lists-article uk-flex uk-flex-wrap">
                 <div>
                     <h3 class="list-head tc-em uk-margin-bottom">
@@ -32,13 +32,13 @@
                     </p>
                 </div>
             </div>
-            <div class="lists-image">
+            <div class="lists-image uk-flex">
                 <div class="image-wrap">
                     <img src="<?php echo theme_image_directory(); ?>/home/feature02.png">
                 </div>
             </div>
         </li>
-        <li class="uk-flex uk-flex-wrap uk-child-width-1-2 uk-margin-large-bottom">
+        <li class="uk-flex uk-flex-wrap uk-margin-large-bottom">
             <div class="lists-article uk-flex uk-flex-wrap">
                 <div>
                     <h3 class="list-head tc-em uk-margin-bottom">
@@ -50,13 +50,13 @@
                     </p>
                 </div>
             </div>
-            <div class="lists-image">
+            <div class="lists-image uk-flex uk-flex-right">
                 <div class="image-wrap">
                     <img src="<?php echo theme_image_directory(); ?>/home/feature03.png">
                 </div>
             </div>
         </li>
-        <li class="uk-flex uk-flex-wrap uk-child-width-1-2 uk-margin-large-bottom reverse">
+        <li class="uk-flex uk-flex-wrap uk-margin-large-bottom reverse">
             <div class="lists-article uk-flex uk-flex-wrap">
                 <div>
                     <h3 class="list-head tc-em uk-margin-bottom">
@@ -69,7 +69,7 @@
                     </p>
                 </div>
             </div>
-            <div class="lists-image">
+            <div class="lists-image uk-flex uk-flex">
                 <div class="image-wrap">
                     <img src="<?php echo theme_image_directory(); ?>/home/feature04.png">
                 </div>
