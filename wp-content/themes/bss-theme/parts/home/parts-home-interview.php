@@ -52,7 +52,7 @@ $staff_interview_query = new WP_Query($args_staff_interview);
     </div>
     <div class="interview-content-wrap">
     </div>
-    <div class="archive-link uk-flex uk-flex-center uk-margin-large-top">
-        <a href="<?php home_url(); ?>/archives/staff-interview" class="uk-margin-large-bottom btn btn-mc tc-white">もっと見る</a>
+    <div class="archive-link uk-flex uk-flex-center uk-margin-top">
+        <a href="<?php home_url(); ?>/archives/staff-interview" class="uk-margin-large-bottom btn tc-em">もっと見る</a>
     </div>
 </div>

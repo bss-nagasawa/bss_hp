@@ -21,36 +21,48 @@
     #main-visual .mv-inner-right {
         width: 40%;
     }
-    .mv-left-content { 
+    .mv-left-content {
         padding: 0 2vw;
     }
     .mv-left-content .mv-btn-wrap {
         margin-top: 2vw;
     }
+    #home-content.main {
+        background-image: url(../images/bg1080.png);
+    }
+    .images-childs .images-childs-card {
+        width: 360px;
+    }
 }
-
 /* 画面幅が800px以下の場合のスタイル */
 @media screen and (max-width: 800px) {
     .pc {
-        display: none;
+        display: unset;
     }
     .sp {
-        display: unset;
+        display: none;
     }
     .header-content .header-menu {
         display: none;
     }
     #main-visual .mv-inner-left {
-        width: 53%;
+        width: 50%;
     }
     #main-visual .mv-inner-right {
-        width: 47%;
+        width: 50%;
+        display: flex;
+        align-items: center;
     }
     .mv-left-content .mv-btn-wrap {
         flex-direction: column;
+        margin-bottom: 40px;
     }
     .mv-inner-left .mv-left-content .btn {
         justify-content: center;
+        padding-left: 2em;
+    }
+    .mv-inner-left .mv-left-content .btn:after {
+        margin: 0 0 0 .5em;
     }
     .mv-left-content .btn-sc {
         margin-top: 1em;
@@ -66,6 +78,46 @@
     #news .inner > .uk-flex {
         flex-direction: column;
     }
+    #home-content.main {
+        background-image: url(../images/bg800.png);
+    }
+    .images-childs .images-childs-card {
+        width: 50vw;
+        margin-bottom: 2em;
+    }
+    .wrap .contentHeader-spacing {
+        padding-top: 40px;
+        padding-bottom: 20px;
+    }
+    .content-body.content-about {
+        padding-bottom: 40px;
+    }
+    .content-features-lists li {
+        flex-direction: column-reverse;
+    }
+    .content-features-lists li:nth-child(n+1) {
+        flex-direction: column;
+    }
+    .content-features-lists {
+        padding: 0 5vw;
+    }
+    .content-features-lists .lists-article {
+        width: 100%;
+    }
+    .content-features-lists .lists-image {
+        width: 100%;
+    }
+    .content-features-lists .lists-image .image-wrap {
+        width: calc(100% - 36px - 8vw);
+    }
+    .content-features-lists .list-article {
+        margin-bottom: 15px;
+    }
+    .item-container .custom-post-item-interview {
+        width: calc(100% / 1 - 30px);
+        margin-bottom: 15px;
+    }
+
 }
 
 /* 画面幅が640px以下の場合のスタイル */
@@ -90,4 +142,61 @@
         width: 64vw;
         margin: 0 auto;
     }
+    #home-content.main {
+        background-image: url(../images/bg640.png);
+    }
+    .mv-btn-wrap-sp {
+        margin-bottom: 40px;
+    }
+    .mv-btn-wrap-sp .btn{
+        width: 65vw;
+        font-size: clamp(16px, 2vw, 24px);
+        font-weight: 500;
+        padding: .75em 0;
+        border-radius: 65px;
+        display: flex;
+        justify-content: center;
+        margin: 0 auto 1em auto;
+    }
+    .mv-btn-wrap-sp .btn:hover {
+        color: #fff;
+    }
+    .mv-btn-wrap-sp .btn-mc:after {
+        content: "";
+        display: block;
+        width: 24px;
+        height: 24px;
+        background-image: url(../images/icon/btn-01.png);
+        background-size: 100%;
+        background-repeat: no-repeat;
+        margin: 0 0 0 1em;
+    }
+    .mv-btn-wrap-sp .btn-sc:after {
+        content: "";
+        display: block;
+        width: 24px;
+        height: 24px;
+        background-image: url(../images/icon/btn-02.png);
+        background-size: 100%;
+        background-repeat: no-repeat;
+        margin: 0 0 0 1em;
+    }
+    .images-childs .images-childs-card {
+        width: 60vw;
+        min-width: 300px;
+        padding: 1.5em 2.5em;
+    }
+    .images-childs .images-childs-card img {
+        margin-top: 0.5em;
+        margin-bottom: 0.5em;
+        height: 220px;
+    }
+    .content-features-lists .lists-image:before {
+        width: 24px;
+    }
+    .content-features-lists .list-article {
+        font-size: 14px;
+        line-height: 1.5em;
+    }
+
 }
