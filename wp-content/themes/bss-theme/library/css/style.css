@@ -245,9 +245,11 @@ h1,h2,h3,h4,h5,p,ul,ol,li,dl,dt,dd,table,th,td,form,fieldset,legend,input,textar
 /** ファイル別 **/
 /* home */
 #home-content {
-    background-image: url(../images/home/bgsample.png);
-    background-repeat: repeat;
+    background-image: url(../images/bg.png);
+    background-repeat: no-repeat;
+    background-size: cover;
     background-attachment: fixed;
+    background-position: top center;
 }
     .mv-inner {
         width: 100%;
@@ -263,14 +265,14 @@ h1,h2,h3,h4,h5,p,ul,ol,li,dl,dt,dd,table,th,td,form,fieldset,legend,input,textar
             margin-top: clamp(24px, 5vw, 49px);
         }
             .mv-headline {
-                font-size: clamp(24px, 5.2vw, 56px);
+                font-size: clamp(28px, 5.2vw, 56px);
                 font-weight: bold;
                 line-height: 1.4em;
             }
             .mv-description {
                 font-weight: 500;
                 margin-top: 20px;
-                font-size: clamp(16px, 2vw, 24px);
+                font-size: clamp(18px, 2vw, 24px);
             }
             .mv-btn-wrap {
                 margin-top: 43px;
@@ -321,11 +323,13 @@ h1,h2,h3,h4,h5,p,ul,ol,li,dl,dt,dd,table,th,td,form,fieldset,legend,input,textar
     width: 420px;
     border-radius: 40px;
     padding: 20px 40px;
+    margin: 0 1em;
 }
     .images-childs-card img {
         display: block;
         height: 240px;
         width: auto;
+        object-fit: contain;
         margin-top: 24px;
         margin-bottom: 24px;
     }
@@ -340,6 +344,10 @@ h1,h2,h3,h4,h5,p,ul,ol,li,dl,dt,dd,table,th,td,form,fieldset,legend,input,textar
         }
 .lists-article {
     padding-right: 1em;
+    width: 50%;
+}
+.lists-image {
+    width: 50%;
 }
     .lists-article > div {
         width: calc(100% - 33px);
@@ -367,31 +375,33 @@ h1,h2,h3,h4,h5,p,ul,ol,li,dl,dt,dd,table,th,td,form,fieldset,legend,input,textar
     display: flex;
     justify-content: end;
 }
-.image-wrap img {
-    width: 458px;
-    height: 266px;
-    overflow: hidden;
-    border-radius: 125px 0 0 0;
+.image-wrap {
+    width: calc(100% - 36px - 20px);
 }
-.image-wrap:before {
+    .image-wrap img {
+        display: block;
+        width: 100%;
+        height: auto;
+        object-fit: contain;
+    }
+.lists-image:before {
     content: "";
     display: block;
     width: 34px;
-    height: 266px;
     background-position: top center;
     background-size: 100%;
     background-repeat: no-repeat;
 }
-.content-features-lists li:nth-child(1) .image-wrap:before {
+.content-features-lists li:nth-child(1) .lists-image:before {
     background-image: url(../images/home/feature-tag-01.png);
 }
-.content-features-lists li:nth-child(2) .image-wrap:before {
+.content-features-lists li:nth-child(2) .lists-image:before {
     background-image: url(../images/home/feature-tag-02.png);
 }
-.content-features-lists li:nth-child(3) .image-wrap:before {
+.content-features-lists li:nth-child(3) .lists-image:before {
     background-image: url(../images/home/feature-tag-03.png);
 }
-.content-features-lists li:nth-child(4) .image-wrap:before {
+.content-features-lists li:nth-child(4) .lists-image:before {
     background-image: url(../images/home/feature-tag-04.png);
 }
 .reverse {
@@ -403,11 +413,8 @@ h1,h2,h3,h4,h5,p,ul,ol,li,dl,dt,dd,table,th,td,form,fieldset,legend,input,textar
     .reverse .image-wrap {
         justify-content: start;
     }
-    .reverse .image-wrap img {
-        border-radius: 0 125px 0 0;
-    }
 .interview-content-container {
-    background-color: rgba(255,255,255,0.95);
+    background-color: rgba(255,255,255,0.995);
     position: relative;
     box-shadow: 0px 4px 4px rgba(0,0,0,0.1);
 }
@@ -452,9 +459,11 @@ h1,h2,h3,h4,h5,p,ul,ol,li,dl,dt,dd,table,th,td,form,fieldset,legend,input,textar
                     display: block;
                     width: 100%;
                     height: auto;
+                    object-fit: contain;
                 }
             .custom-post-head {
                 padding: 35px 20px;
+                background-color: #fff;
             }
                 .custom-post-title {
                     font-size: clamp(12px, 1.5vw, 16px);
@@ -475,6 +484,24 @@ h1,h2,h3,h4,h5,p,ul,ol,li,dl,dt,dd,table,th,td,form,fieldset,legend,input,textar
     top: 0;
     left: 0;
 }
+    .archive-link a {
+        width: 263px;
+        border: 1px solid #0B60B4;
+        border-radius: 25px;
+        padding: 0.5em 0;
+        margin-top: 55px;
+    }
+        .archive-link a:after {
+            content: "";
+            display: block;
+            width: 25px;
+            height: 25px;
+            background-image: url(../images/icon/btn-arrow-05.png);
+            background-size: 100%;
+            background-repeat: no-repeat;
+            margin-left: 12px;
+        }
+
 .home-blog-content {
     background-color: rgba(255,255,255,1);
     margin-top: 125px;
