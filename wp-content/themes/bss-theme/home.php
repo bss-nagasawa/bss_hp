@@ -23,7 +23,7 @@ get_header();
 
 		<main id="home-content" class="main" role="main" itemscope itemprop="mainContentOfPage" itemtype="http://schema.org/WebPage">
 
-			<div id="main-visual" class="parallax-content">
+			<div id="main-visual" class="wide-content">
 				<?php get_template_part('parts/home/parts-home-mv'); ?>
 			</div><!-- /#main-visual -->
 
@@ -33,17 +33,17 @@ get_header();
 				</div>
 			</div><!-- /#about-bss -->
 
-			<div id="feature-bss" class="parallax-content">
+			<div id="feature-bss" class="content">
 				<div class="inner">
 					<?php get_template_part('parts/home/parts-home-features'); ?>
 				</div>
 			</div><!-- /#feature-bss -->
 
-			<div id="staff-interview" class="slide-content">
+			<div id="staff-interview" class="slide-content wide-content">
 				<?php get_template_part('parts/home/parts-home-interview'); ?>
 			</div><!-- /#staff-interview -->
 
-			<div class="home-blog-content">
+			<div class="home-blog-content content">
 				<div class="content-header contentHeader-spacing">
 					<h3 class="content-header-title">BSSのことがもっとわかる！</h3>
 					<h4 class="content-header-ruby">Blog</h4>
@@ -62,7 +62,7 @@ get_header();
 				</div><!-- /#staff-blog -->
 			</div>
 
-			<div id="news" class="inner-content">
+			<div id="news" class="inner-content wide-content">
 				<div class="round-bg-container uk-background-default">
 					<div class="inner">
 						<div class="uk-flex uk-felx-wrap">

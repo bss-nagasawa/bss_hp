@@ -2,7 +2,7 @@
 /*レスポンシブ対応は別ファイル*/
 @import url('media.css');
 /** uikitリセット **/
-* {box-sizing: border-box;}
+* {box-sizing: border-box;word-wrap: break-word;}
 h1,h2,h3,h4,h5,p,ul,ol,li,dl,dt,dd,table,th,td,form,fieldset,legend,input,textarea,button,select{margin:0;padding:0;list-style: none;}
 /** グローバル **/
 .conteiner,
@@ -71,6 +71,10 @@ h1,h2,h3,h4,h5,p,ul,ol,li,dl,dt,dd,table,th,td,form,fieldset,legend,input,textar
     line-height: 2em;
 }
 /*parts*/
+.content {
+    padding-left: 1.5vw;
+    padding-right: 1.5vw;
+}
 .btn {
     display: flex;
     flex-wrap: wrap;
@@ -567,13 +571,14 @@ h1,h2,h3,h4,h5,p,ul,ol,li,dl,dt,dd,table,th,td,form,fieldset,legend,input,textar
                 color: #0B60B4;
             }
     .custom-post-item-blog {
-        width: 250px;
-        margin: 0 0 0 20px;
+        max-width: 250px;
+        width: calc(100% / 3 );
+        padding: 0 .5vw;
     }
     .custom-post-item-blog .custom-post-thumbnail {
         border-radius: 25px;
         overflow: hidden;
-        height: 180px;
+        height: 18vw;
     }
         .custom-post-item-blog .custom-post-title {
             padding: 10px;
@@ -584,10 +589,14 @@ h1,h2,h3,h4,h5,p,ul,ol,li,dl,dt,dd,table,th,td,form,fieldset,legend,input,textar
             .custom-post-title a:hover {
                 text-decoration: none;
             }
+            .custom-post-title span {
+                display: inline-block;
+            }
         .custom-post-item-blog .date {
             font-size: clamp(16px, 2vw, 24px);
             color: #000;
             font-weight: normal;
+            margin-right: 1em;
         }
         .custom-post-item-blog .category {
             font-size: 14px;
@@ -596,7 +605,6 @@ h1,h2,h3,h4,h5,p,ul,ol,li,dl,dt,dd,table,th,td,form,fieldset,legend,input,textar
             border-radius: 5px;
             font-weight: 100;
             padding: 0.25em .75em;
-            margin-left: 1em;
         }
         .custom-post-item-blog .post-title {
             font-weight: normal;
@@ -685,6 +693,3 @@ h1,h2,h3,h4,h5,p,ul,ol,li,dl,dt,dd,table,th,td,form,fieldset,legend,input,textar
                             color: #fff;
                         }
 /** レスポンシブ **/
-iframe {
-    display: none !important;
-}
