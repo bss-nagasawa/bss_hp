@@ -12,11 +12,11 @@ $blog_query = new WP_Query($args_blog);
             <?php while ($blog_query->have_posts()) : $blog_query->the_post(); ?>
                 <div class="custom-post-item-blog">
                     <?php if (has_post_thumbnail()) : ?>
-                        <div class="custom-post-thumbnail">
-                            <a href="<?php the_permalink(); ?>">
+                        <a href="<?php the_permalink(); ?>">
+                            <div class="custom-post-thumbnail">
                                 <?php the_post_thumbnail('thumbnail'); ?>
-                            </a>
-                        </div>
+                            </div>
+                        </a>
                     <?php endif; ?>
                     <div class="custom-post-title">
                         <a href="<?php the_permalink(); ?>">
