@@ -15,7 +15,7 @@
         </div>
     </div>
     <div class="uk-flex uk-flex-center">
-        <iframe src="https://www.google.com/maps/embed?pb=<?php echo get_option('company_coordinates'); ?>" width="680" height="295" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" id="google-map"></iframe>
+        <iframe src="https://www.google.com/maps/embed?pb=<?php echo get_option('company_coordinates'); ?>" width="" height="295" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" id="google-map"></iframe>
     </div>
     <p class="uk-margin-small-top uk-margin-small-bottom">
         <span><?php echo get_option('company_address'); ?></span>

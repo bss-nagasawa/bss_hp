@@ -33,6 +33,59 @@
     .images-childs .images-childs-card {
         width: 360px;
     }
+    #news .news-body {
+        padding: 0 2vw;
+    }
+    #footer .footer-content {
+        background: none;
+    }
+    .footer-content .footer-container {
+        flex-direction: column;
+    }
+    .footer-content .footer-links {
+        width: unset;
+        padding-top: 0;
+        display: flex;
+        flex-direction: column;
+        padding-left: 0px;
+        padding: 2vw 5vw;
+        background: linear-gradient(
+            to right,
+            #0B60B4 0%,
+            #54A2F0 100%
+        );
+        align-items: center;
+    }
+    .footer-content .footer-access-wrap {
+        flex-direction: column;
+        width: 100%;
+        justify-content: center;
+        align-items: center;
+    }
+    .footer-content .container-pmark {
+        display: none;
+    }
+    .footer-content .footer-content-wrap {
+        padding-right: 0;
+        padding-top: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+    .footer-content .footer-access {
+        width: unset;
+        padding: 2em 10vw;
+    }
+    .footer-content .footer-content-wrap .container-logo {
+        border-right: none;
+        padding-right: 0;
+        margin-right: 0;
+    }
+    .footer-content .footer-content-wrap .container-access {
+        width: unset;
+
+    }
 }
 /* 画面幅が800px以下の場合のスタイル */
 @media screen and (max-width: 800px) {
@@ -117,7 +170,65 @@
         width: calc(100% / 1 - 30px);
         margin-bottom: 15px;
     }
-
+    .blog-header.employ,
+    .blog-header.president {
+        width: inherit;
+        border-radius: 15px 15px 0 0;
+        margin-right: 0;
+    }
+    .blog-header.employ h3,
+    .blog-header.president h3 {
+        margin: 0.5em 0;
+    }
+    .blog-link-more .btn,
+    .pagination {
+        margin-bottom: 1em;
+    }
+    .pagination .btn-prev:before,
+    .pagination .btn-next:before {
+        width: 30px;
+        height: 30px;
+    }
+    .note-posts .blog-body {
+        width: inherit;
+    }
+    .note-posts  .blog-list-nomal {
+        display: block;
+        padding: 1.0em 1.0em;
+    }
+    .note-posts .blog-list-nomal .date,
+    .note-posts .blog-list-nomal .title {
+        width: inherit;
+    }
+    #staff-blog .blog-body {
+        padding: 1em;
+        width: unset;
+    }
+    #staff-blog .blog-body .custom-post-item-blog {
+        width: calc(100% / 2);
+        max-width: none;
+    }
+    #staff-blog .blog-body .custom-post-item-blog .custom-post-thumbnail {
+        height: 30vw;
+    }
+    #news .round-bg-container {
+        padding: 60px 0 30px 0;
+    }
+    #news .news-header.news {
+        width: unset;
+        background-color: #E5F1FD;
+    }
+    #news .news-link-more {
+        margin: 1em 0;
+    }
+    #news .news-link-more a {
+        margin-top: 0px;
+    }
+    #news .news-body {
+        width: unset;
+        padding: 0 2vw;
+        background-color: #E5F1FD;
+    }
 }
 
 /* 画面幅が640px以下の場合のスタイル */
@@ -197,6 +308,19 @@
     .content-features-lists .list-article {
         font-size: 14px;
         line-height: 1.5em;
+    }
+}
+@media screen and (max-width: 380px) {
+    #staff-blog .blog-body .custom-post-item-blog {
+        width: calc(100% / 1);
+        max-width: none;
+    }
+    #staff-blog .blog-body .custom-post-item-blog .custom-post-thumbnail {
+        height: 50vw;
+    }
+    .copy-container .inner {
+        flex-direction: column;
+        align-items: center;
     }
 
 }
