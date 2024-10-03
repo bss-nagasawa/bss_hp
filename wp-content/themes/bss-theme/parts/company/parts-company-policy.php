@@ -13,10 +13,10 @@
                 <li>社会への持続的な貢献を推進する。</li>
             </ol>
         </div>
-    </div><!-- /#company-policy -->
+    </div>
     <div class="content-header">
         <h3 class="content-header-title">スローガン</h3>
         <h4 class="content-header-ruby">Slogan</h4>
         <p>夢をカタチに、ITでゆたかに。</p>
     </div>
-</div>
+</div><!-- /#company-policy -->
