@@ -417,3 +417,10 @@ function company_coordinates_field_callback()
   $value = get_option('company_coordinates', '');
   echo '<input type="text" id="company_coordinates" name="company_coordinates" value="' . esc_attr($value) . '" class="regular-text">';
 }
+
+//googlefont　楷書体
+function enqueue_google_fonts()
+{
+  wp_enqueue_style('google-fonts', 'https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;700&display=swap', false);
+}
+add_action('wp_enqueue_scripts', 'enqueue_google_fonts');
