@@ -1,7 +1,7 @@
 <div class="footer-content-wrap">
     <div class="uk-flex uk-flex-wrap footer-access-wrap uk-margin-small-bottom">
         <div class="container-logo">
-            <img src="<?php echo theme_image_directory(); ?>/logo.png">
+            <img src="<?php echo theme_image_directory(); ?>/common/logo.png">
         </div>
         <div class="container-access">
             <p>

@@ -28,7 +28,7 @@
         margin-top: 2vw;
     }
     #home-content.main {
-        background-image: url(../images/bg1080.png);
+        background-image: url(../images/common/bg1080.png);
     }
     .images-childs .images-childs-card {
         width: 360px;
@@ -95,6 +95,9 @@
     .sp {
         display: none;
     }
+    .header .header-content {
+        height: unset;padding: 0.5em 0;
+    }
     .header-content .header-menu {
         display: none;
     }
@@ -132,7 +135,10 @@
         flex-direction: column;
     }
     #home-content.main {
-        background-image: url(../images/bg800.png);
+        background-image: url(../images/common/bg800.png);
+        background-size: contain;
+        background-repeat: repeat-y;
+        background-attachment: scroll;
     }
     .images-childs .images-childs-card {
         width: 50vw;
@@ -229,6 +235,9 @@
         padding: 0 2vw;
         background-color: #E5F1FD;
     }
+    .archive-link .btn {
+        margin-top: 1em;
+    }
 }
 
 /* 画面幅が640px以下の場合のスタイル */
@@ -254,7 +263,7 @@
         margin: 0 auto;
     }
     #home-content.main {
-        background-image: url(../images/bg640.png);
+        background-image: url(../images/common/bg640.png);
     }
     .mv-btn-wrap-sp {
         margin-bottom: 40px;

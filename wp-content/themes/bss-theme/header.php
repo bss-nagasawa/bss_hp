@@ -56,7 +56,7 @@
 		<div id="" class="header-content">
 			<div class="content-left">
 				<a href="<?php echo home_url(); ?>" class="header-home-link">
-					<img src="<?php echo theme_image_directory(); ?>/logo.png" class="logo-image">
+					<img src="<?php echo theme_image_directory(); ?>/common/logo.png" class="logo-image">
 				</a>
 			</div>
 			<div class="content-right">

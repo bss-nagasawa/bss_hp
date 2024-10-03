@@ -36,7 +36,7 @@ h1,h2,h3,h4,h5,p,ul,ol,li,dl,dt,dd,table,th,td,form,fieldset,legend,input,textar
 .round-bg-container {
     background-color: #fff; /* 背景色を白に設定 */
     background-image:
-    url(../images/bg-round.png),
+    url(../images/common/bg-round.png),
     linear-gradient(
         to bottom,
         #fff 0%,
@@ -249,7 +249,7 @@ h1,h2,h3,h4,h5,p,ul,ol,li,dl,dt,dd,table,th,td,form,fieldset,legend,input,textar
 /** ファイル別 **/
 /* home */
 #home-content {
-    background-image: url(../images/bg.png);
+    background-image: url(../images/common/bg.png);
     background-repeat: no-repeat;
     background-size: cover;
     background-attachment: fixed;
