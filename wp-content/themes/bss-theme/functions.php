@@ -421,6 +421,7 @@ function company_coordinates_field_callback()
 //googlefont　楷書体
 function enqueue_google_fonts()
 {
-  wp_enqueue_style('google-fonts', 'https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;700&display=swap', false);
+  wp_enqueue_style('google-fonts-noto-serif-jp', 'https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;700&display=swap', false);
+  wp_enqueue_style('google-fonts-kosugi-maru', 'https://fonts.googleapis.com/css2?family=Kosugi+Maru&display=swap', false);
 }
 add_action('wp_enqueue_scripts', 'enqueue_google_fonts');

@@ -3,6 +3,7 @@
 $args_staff_interview = array(
     'post_type' => 'staff-interview',
     'posts_per_page' => 3, // 表示する投稿数を指定
+    'cat' => 12, // カテゴリーIDを指定
 );
 $staff_interview_query = new WP_Query($args_staff_interview);
 ?>
