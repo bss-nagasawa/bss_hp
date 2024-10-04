@@ -7,8 +7,9 @@
     $args = array(
         'post_type' => 'faq',
         'posts_per_page' => 3, // 表示する投稿数を指定
-        'orderby' => 'date',
-        'order' => 'ASC', // 古い順に並べる
+        'meta_key' => 'oreder_num', // カスタムフィールドのキーを指定
+        'orderby' => 'meta_value_num', // カスタムフィールドの値でソート
+        'order' => 'ASC', // 昇順でソート
     );
     $faq_query = new WP_Query($args);
     ?>

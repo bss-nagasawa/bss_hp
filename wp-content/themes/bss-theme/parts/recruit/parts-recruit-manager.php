@@ -1,14 +1,28 @@
+<?php
+// カスタム投稿タイプ 'staff-interview' のクエリ
+$args_staff_interview = array(
+    'post_type' => 'staff-interview',
+    'posts_per_page' => 1, // 表示する投稿数を指定
+    'cat' => 13, // カテゴリーIDを指定
+);
+$staff_interview_query = new WP_Query($args_staff_interview);
+?>
 <div id="recruit-manager" class="content-manager">
-    <h4>Interview</h4>
-    <h3>採用担当者にインタビュー</h3>
-    <img src="<?php echo theme_image_directory(); ?>/recruit/interview.png">
-    <p>「夢見ることができるなら、それは実現できること」</p>
-    <p>
-        求職者は人生をかけて転職活動をしていると思っているので、こちらも真剣に向き合うことを心がけています。
-        何をやりたいのか、今後どうしたいのかを面接でよく聞いています。
-        質問攻めの面接もあると思いますが、それだと本当の心の内を聞けないと思っているため、なるべく会話しながら人となりがわかっていけるような、ラフな雰囲気で面接を実施しています。
-        また、求職者と本気で向き合うからこそ熱く語ることが多く、求職者の今後のビジョンをどう会社がサポートできるかを本気で考え、その場で意見を伝えています。
-        また、入社した社員一人ひとり、その都度状況把握をし、ベストな選択をできるようにフォローもしっかりしており、会社都合ではなくメンバーのビジョンが叶う案件先を常に探しています。
-    </p>
-    <a href="https://recruit.bss-j.co.jp" target="_blank">採用専用サイトへ</a>
+    <?php if ($staff_interview_query->have_posts()) : ?>
+        <?php while ($staff_interview_query->have_posts()) : $staff_interview_query->the_post(); ?>
+            <div class="uk-flex uk-flex-wrap">
+                <div>
+                    <?php echo get_the_post_thumbnail(null, 'full') ?>
+                </div>
+                <div>
+                    <h4>Interview</h4>
+                    <h3>採用担当者にインタビュー</h3>
+                    <?php the_title(); ?>
+                    <?php the_content(); ?>
+                    <a href="https://recruit.bss-j.co.jp" target="_blank">採用専用サイトへ</a>
+                </div>
+            </div>
+        <?php endwhile; ?>
+        <?php wp_reset_postdata(); ?>
+    <?php endif; ?>
 </div><!-- /#recruit-message -->
