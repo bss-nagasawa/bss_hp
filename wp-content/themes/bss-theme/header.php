@@ -34,6 +34,7 @@
 	<meta name="msapplication-TileImage" content="<?php echo get_template_directory_uri(); ?>/library/images/win8-tile-icon.png">
 	<meta name="theme-color" content="#121212">
 	<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;700&display=swap" rel="stylesheet">
 	<link rel="pingback" href="<?php bloginfo('pingback_url'); ?>">
 
 	<?php // wordpress head functions 
@@ -56,7 +57,7 @@
 		<div id="" class="header-content">
 			<div class="content-left">
 				<a href="<?php echo home_url(); ?>" class="header-home-link">
-					<img src="<?php echo theme_image_directory(); ?>/logo.png" class="logo-image">
+					<img src="<?php echo theme_image_directory(); ?>/common/logo.png" class="logo-image">
 				</a>
 			</div>
 			<div class="content-right">
