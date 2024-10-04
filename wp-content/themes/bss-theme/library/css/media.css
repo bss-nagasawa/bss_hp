@@ -238,6 +238,43 @@
     .archive-link .btn {
         margin-top: 1em;
     }
+    /*会社概要*/
+    #company-policy.content-policy {
+        background-position: bottom 10vh center;
+        position: relative;
+    }
+    #company-policy.content-policy::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 10vh;
+        background-color: #E5F1FD;
+        z-index: -1;
+    }
+    #company-policy.content-policy .inner {
+        padding-left: 0;
+    }
+    .policy {
+        flex-direction: column;
+        align-items: flex-end;
+    }
+    .policy .policy-headline {
+        width: 100%;
+        padding-left: 4vw;
+    }
+    .policy .policy-image {
+        width: 68%;
+        margin-top: 20px;
+    }
+    .content-policy .philosophy {
+        padding:0 5vw ;
+    }
+    .content-service .service-list li {
+        width: 100%;
+        margin-bottom: 1.5em;
+    }
 }
 
 /* 画面幅が640px以下の場合のスタイル */
@@ -317,6 +354,34 @@
     .content-features-lists .list-article {
         font-size: 14px;
         line-height: 1.5em;
+    }
+    .content-message .message-container {
+        flex-direction: column;
+        align-items: center;
+    }
+    .message-container .message-image {
+        width: 65%;
+    }
+    .message-container .message-body {
+        width: 100%;
+        margin-top: 25px;
+    }
+    .tablepress-id-6 .column-1 {
+        display: block;
+        width: 25vw;
+    }
+    .tablepress-id-6 .column-2 {
+        display: block;
+        width: 100%;
+    }
+    #company-history.content-history .tablepress-id-7 .column-1 {
+        font-size: 24px;
+    }
+    #company-history.content-history .tablepress-id-7 .column-3 {
+        font-size: 14px;
+    }
+    #company-history.content-history .tablepress-id-7 .column-2 {
+        font-size: 12px;
     }
 }
 @media screen and (max-width: 380px) {

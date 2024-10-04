@@ -1,12 +1,12 @@
 <div id="company-policy" class="content-policy">
-    <div class="inner content-inner uk-padding-remove-right">
+    <div class="inner">
         <div class="">
-            <div class="policy uk-flex uk-child-width-2-1 uk-flex-middle">
-                <div>
+            <div class="policy uk-flex">
+                <div class="policy-headline">
                     <h3 class="company-policy-title tc-em uk-text-bold">社是<span class="ruby">Company Mission</span></h3>
                     <p class="company-policy-body tc-em uk-text-bold">チャレンジ精神を持ちながら、<br>誠実に生きる。</p>
                 </div>
-                <div>
+                <div class="policy-image">
                     <img src="<?php echo theme_image_directory(); ?>/company/company01.png">
                 </div>
             </div>
