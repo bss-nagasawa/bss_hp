@@ -318,6 +318,7 @@ function register_menus()
       'global' => __('Global'),
       'footer' => __('Footer'),
       'copy' => __('Copylight'),
+      'sp' => __('SP'),
     )
   );
 }
@@ -425,3 +426,50 @@ function enqueue_google_fonts()
   wp_enqueue_style('google-fonts-kosugi-maru', 'https://fonts.googleapis.com/css2?family=Kosugi+Maru&display=swap', false);
 }
 add_action('wp_enqueue_scripts', 'enqueue_google_fonts');
+
+//アーカイブタイトルのカスタマイズ
+function remove_archive_prefix($title) {
+    if (is_category()) {
+        $title = single_cat_title('', false);
+    } elseif (is_tag()) {
+        $title = single_tag_title('', false);
+    } elseif (is_author()) {
+        $title = '<span class="vcard">' . get_the_author() . '</span>';
+    } elseif (is_post_type_archive()) {
+        $title = post_type_archive_title('', false);
+    } elseif (is_tax()) {
+        $title = single_term_title('', false);
+    } elseif (is_date()) {
+        if (is_day()) {
+            $title = get_the_date();
+        } elseif (is_month()) {
+            $title = get_the_date('F Y');
+        } elseif (is_year()) {
+            $title = get_the_date('Y');
+        }
+    }
+    return $title;
+}
+add_filter('get_the_archive_title', 'remove_archive_prefix');
+
+// アーカイブスラッグを取得する関数
+function get_archive_slug() {
+  $queried_object = get_queried_object();
+  $archive_slug = '';
+  if (isset($queried_object->slug)) {
+      $archive_slug = $queried_object->slug;
+  } elseif (isset($queried_object->name)) {
+      $archive_slug = $queried_object->name;
+  }
+  return $archive_slug;
+}
+
+//アーカイブから特定カテゴリ除外
+function exclude_category_for_staff_interview($query) {
+    if ($query->is_archive() && $query->is_main_query() && !is_admin()) {
+        if ($query->get('post_type') == 'staff-interview') {
+            $query->set('category__not_in', array(13));
+        }
+    }
+}
+add_action('pre_get_posts', 'exclude_category_for_staff_interview');

@@ -1,7 +1,8 @@
 <div id="recruit-faq" class="content-faq">
-    <h3>採用Q＆A</h3>
-    <h4>Q&A</h4>
-    <p>採用についての疑問・お悩みに採用担当者がお答えします。</p>
+    <div class="content-header contentHeader-spacing">
+        <h3 class="content-header-title">採用Q＆A</h3>
+        <h4 class="content-header-ruby">Q&A</h4>
+    </div>
     <?php
     // カスタム投稿タイプ 'faq' のクエリ
     $args = array(
@@ -13,18 +14,26 @@
     );
     $faq_query = new WP_Query($args);
     ?>
-
-    <?php if ($faq_query->have_posts()) : ?>
-        <div class="faq-list">
-            <?php while ($faq_query->have_posts()) : $faq_query->the_post(); ?>
-                <div class="faq-item">
-                    <h3 class="faq-title"><?php the_title(); ?></h3>
-                    <div class="faq-content"><?php the_content(); ?></div>
-                </div>
-            <?php endwhile; ?>
+    <div class="inner content-inner">
+        <p class="uk-text-center uk-margin-large-bottom">今採用についての疑問・お悩みに採用担当者がお答えします。</p>
+        <ul uk-accordion>
+            <?php if ($faq_query->have_posts()) : ?>
+                    <?php while ($faq_query->have_posts()) : $faq_query->the_post(); ?>
+                        <li class="faq-item">
+                            <a class="faq-title uk-accordion-title" href><h3><span class="faq-icon">Ｑ</span><?php the_title(); ?></h3></a>
+                            <div class="faq-content uk-accordion-content uk-flex">
+                                <span class="faq-icon">Ａ</span>
+                                <div><?php the_content(); ?></div>
+                            </div>
+                        </li>
+                    <?php endwhile; ?>
+                <?php wp_reset_postdata(); ?>
+            <?php else : ?>
+                <p>FAQが見つかりませんでした。</p>
+            <?php endif; ?>
+        </ul>
+        <div class="faq-link uk-flex uk-flex-right uk-margin-small-top">
+            <a href="<?php echo get_post_type_archive_link('faq'); ?>" class="uk-margin-large-bottom btn tc-em">他のQ&Aを見る</a>
         </div>
-        <?php wp_reset_postdata(); ?>
-    <?php else : ?>
-        <p>FAQが見つかりませんでした。</p>
-    <?php endif; ?>
+    </div>
 </div><!-- /#recruit-message -->

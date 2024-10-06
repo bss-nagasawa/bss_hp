@@ -43,7 +43,7 @@ get_header();
 				<?php get_template_part('parts/home/parts-home-interview'); ?>
 			</div><!-- /#staff-interview -->
 
-			<div class="home-blog-content content">
+			<div id="home-blog" class="home-blog-content content">
 				<div class="content-header contentHeader-spacing">
 					<h3 class="content-header-title">BSSのことがもっとわかる！</h3>
 					<h4 class="content-header-ruby">Blog</h4>
@@ -72,7 +72,7 @@ get_header();
 									<h4 class="content-header-ruby">News</h4>
 								</div>
 								<div class="news-link-more">
-									<a href="#" class="btn btn-more tc-em uk-flex uk-flex-wrap uk-flex-center">もっと見る</a>
+									<a href="/post-archives" class="btn btn-more tc-em uk-flex uk-flex-wrap uk-flex-center">もっと見る</a>
 								</div>
 							</div>
 
@@ -105,7 +105,7 @@ get_header();
 													}
 													?>
 												</div>
-												<p><?php the_title(); ?></p>
+												<p><a href="<?php permalink_link();?>"><?php the_title(); ?></a></p>
 											</div>
 										<?php
 										endwhile;

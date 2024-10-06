@@ -46,7 +46,7 @@ $blog_query = new WP_Query($args_blog);
     <div class="blog-header employ uk-flex uk-flex-center uk-flex-middle">
         <h3 class="uk-text-bold">社員ブログ</h3>
         <div class="blog-link-more">
-            <a href="#" class="btn btn-more tc-white">もっと見る</a>
+            <a href="<?php echo get_post_type_archive_link('staff-blog'); ?>" class="btn btn-more tc-white">もっと見る</a>
         </div>
     </div>
 </div>
