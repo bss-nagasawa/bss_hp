@@ -54,6 +54,6 @@ $staff_interview_query = new WP_Query($args_staff_interview);
     <div class="interview-content-wrap">
     </div>
     <div class="archive-link uk-flex uk-flex-center uk-margin-top">
-        <a href="<?php home_url(); ?>/archives/staff-interview" class="uk-margin-large-bottom btn tc-em">もっと見る</a>
+        <a href="<?php echo get_post_type_archive_link('staff-interview'); ?>" class="uk-margin-large-bottom btn tc-em">もっと見る</a>
     </div>
 </div>

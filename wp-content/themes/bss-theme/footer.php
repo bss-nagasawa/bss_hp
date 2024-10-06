@@ -22,6 +22,18 @@
 				<?php get_template_part('parts/footer/parts-footer-copy'); ?>
 			</footer>
 			</div>
+			<div class="sp-menu">
+				<?php
+					wp_nav_menu(array(
+						'theme_location' => 'sp',
+						'container' => false,
+						'menu_class' => 'sp-menu',
+						// 'items_wrap' => '%3$s', // <ul>タグを出力しない
+						'walker' => new Walker_Nav_Menu_No_UL(), // カスタムウォーカーを使用
+					));
+				?>	
+			</div>
+
 			<?php wp_footer(); ?>
 			</body>
 
