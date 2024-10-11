@@ -20,7 +20,7 @@
             echo '<div class="blog-header president uk-flex uk-flex-center uk-flex-middle">';
             echo '<h3 class="uk-text-bold">社長ブログ</h3>';
             echo '<div class="pagination uk-flex">';
-            echo '<a href="#" class="next-page btn-next" data-page="2"></a>';
+            echo '<a href="" class="next-page btn-next" data-page="2"></a>';
             echo '</div></div></div>';
         }
         ?>

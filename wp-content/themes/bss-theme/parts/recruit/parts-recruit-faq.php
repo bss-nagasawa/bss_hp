@@ -37,3 +37,35 @@
         </div>
     </div>
 </div><!-- /#recruit-message -->
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const loadMoreButton = document.querySelector('.faq-link a');
+    let page = 2; // 初期ページ番号
+
+    loadMoreButton.addEventListener('click', function(event) {
+        event.preventDefault();
+
+        const xhr = new XMLHttpRequest();
+        xhr.open('POST', '<?php echo admin_url('admin-ajax.php'); ?>', true);
+        xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded; charset=UTF-8');
+
+        xhr.onload = function() {
+            if (xhr.status === 200) {
+                const response = JSON.parse(xhr.responseText);
+                if (response.success) {
+                    const faqList = document.querySelector('ul[uk-accordion]');
+                    faqList.insertAdjacentHTML('beforeend', response.data);
+                    page++;
+
+                    // 追加の一覧が表示されたらボタンを非表示にする
+                    loadMoreButton.parentElement.style.display = 'none';
+                } else {
+                    alert('これ以上のQ&Aはありません。');
+                }
+            }
+        };
+
+        xhr.send('action=load_more_faqs&page=' + page);
+    });
+});
+</script>

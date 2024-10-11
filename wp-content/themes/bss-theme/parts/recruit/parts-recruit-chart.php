@@ -16,9 +16,8 @@
                 <div>
                     <img src="<?php echo theme_image_directory(); ?>/recruit/chart04.png">
                 </div>
-                <div class="flex-around">
+                <div>
                     <img src="<?php echo theme_image_directory(); ?>/recruit/chart05.png">
-                    <img src="<?php echo theme_image_directory(); ?>/recruit/chart06.png">
                 </div>
             </div>
         </div>

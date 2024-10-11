@@ -11,31 +11,29 @@ $blog_query = new WP_Query($args_blog);
         <?php if ($blog_query->have_posts()) : ?>
             <?php while ($blog_query->have_posts()) : $blog_query->the_post(); ?>
                 <div class="custom-post-item-blog">
-                    <?php if (has_post_thumbnail()) : ?>
-                        <a href="<?php the_permalink(); ?>">
-                            <div class="custom-post-thumbnail">
-                                <?php the_post_thumbnail('thumbnail'); ?>
-                            </div>
-                        </a>
-                    <?php endif; ?>
-                    <div class="custom-post-title">
-                        <a href="<?php the_permalink(); ?>">
-                            <p>
-                                <span class="date"><?php echo get_the_time('Y.m.d'); ?></span>
-                                <?php
-                                $categories = get_the_category();
-                                if (!empty($categories)) {
-                                    foreach ($categories as $category) {
-                                        echo '<span class="category">' . esc_html($category->name) . '</span>';
+                    <a href="<?php the_permalink(); ?>">
+                        <?php if (has_post_thumbnail()) : ?>
+                                    <div class="custom-post-thumbnail">
+                                        <?php the_post_thumbnail('thumbnail'); ?>
+                                    </div>
+                            <?php endif; ?>
+                            <div class="custom-post-title">
+                                <p>
+                                    <span class="date"><?php echo get_the_time('Y.m.d'); ?></span>
+                                    <?php
+                                    $categories = get_the_category();
+                                    if (!empty($categories)) {
+                                        foreach ($categories as $category) {
+                                            echo '<span class="category">' . esc_html($category->name) . '</span>';
+                                        }
+                                    } else {
+                                        echo 'カテゴリがありません';
                                     }
-                                } else {
-                                    echo 'カテゴリがありません';
-                                }
-                                ?>
-                            </p>
-                            <p class="tc-bk post-title uk-margin-small-top"><?php the_title(); ?></p>
-                        </a>
-                    </div>
+                                    ?>
+                                </p>
+                                <p class="tc-bk post-title uk-margin-small-top"><?php the_title(); ?></p>
+                            </div>
+                    </a>
                 </div>
             <?php endwhile; ?>
             <?php wp_reset_postdata(); ?>

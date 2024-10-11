@@ -20,13 +20,15 @@
 							</h1>
 						<?php endif;?>
 						<div class="post-body">
-							<?php if (has_post_thumbnail()) {
-								$thumbnail_id = get_post_thumbnail_id();
-								$eye_img = wp_get_attachment_image_src($thumbnail_id, 'full');
-								if ($eye_img) {
-									echo '<img src="'. esc_url($eye_img[0]) .'" alt="'. get_the_title() .'">';
-								}
-							} ?>
+							<?php if(!get_post_type() == 'staff-blog') :?>
+								<?php if (has_post_thumbnail()) {
+									$thumbnail_id = get_post_thumbnail_id();
+									$eye_img = wp_get_attachment_image_src($thumbnail_id, 'full');
+									if ($eye_img) {
+										echo '<img src="'. esc_url($eye_img[0]) .'" alt="'. get_the_title() .'">';
+									}
+								} ?>
+							<?php endif;?>
 							<div class="post-bod-article"><?php the_content();?></div>
 						</div>
 					</section>

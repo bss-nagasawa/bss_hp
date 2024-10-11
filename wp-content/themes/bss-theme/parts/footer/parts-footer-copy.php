@@ -1,5 +1,5 @@
 <div class="copy-container">
-    <div class="inner uk-flex uk-flex-nowrap uk-flex-between">
+    <div class="inner content-inner uk-flex uk-flex-nowrap uk-flex-between">
         <div class="copy-links">
             <?php
             wp_nav_menu(array(
