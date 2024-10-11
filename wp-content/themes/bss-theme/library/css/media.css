@@ -453,6 +453,16 @@
   #company-message .inner {
     background-color: rgba(255, 255, 255, 0.6);
   }
+  .content-inner .post-archive-list {
+    width: calc(100% / 2 - 20px);
+  }
+  .post-archive-list .archive-list-image {
+    height: 120px;
+  }
+  .staff-interview-post-title {
+    font-size: 20px;
+    font-weight: bold;
+  }
 }
 
 /* 画面幅が640px以下の場合のスタイル */

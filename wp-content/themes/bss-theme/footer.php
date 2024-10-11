@@ -40,6 +40,9 @@
 				jQuery(document).ready(function($) {
                     // スムーススクロールの設定
                     $('a[href*="#"]').on('click', function(e) {
+						$(".mega-menu-open").removeClass("mega-menu-open");
+						$(".mega-menu-sp-mobile-open").removeClass("mega-menu-sp-mobile-open");
+						
                         // ハッシュリンクが現在のページ内のリンクであることを確認
                         if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') && location.hostname == this.hostname) {
                             e.preventDefault();
