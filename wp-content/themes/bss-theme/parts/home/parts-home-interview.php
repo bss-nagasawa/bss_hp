@@ -16,7 +16,7 @@ $staff_interview_query = new WP_Query($args_staff_interview);
         <div class="item-container uk-flex uk-flex-wrap">
             <?php if ($staff_interview_query->have_posts()) : ?>
                 <?php while ($staff_interview_query->have_posts()) : $staff_interview_query->the_post(); ?>
-                    <div class="custom-post-item-interview">
+                    <div class="custom-post-item-interview" uk-scrollspy="cls: uk-animation-fade; repeat: false">
                         <a href="<?php the_permalink(); ?>">
                             <?php if (has_post_thumbnail()) : ?>
                                 <div class="custom-post-thumbnail">

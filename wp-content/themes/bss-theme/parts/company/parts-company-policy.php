@@ -7,15 +7,15 @@
                     <p class="company-policy-body tc-em uk-text-bold">チャレンジ精神を持ちながら、<br>誠実に生きる。</p>
                 </div>
                 <div class="policy-image">
-                    <img src="<?php echo theme_image_directory(); ?>/company/company01.png">
+                    <img src="<?php echo theme_image_directory(); ?>/company/company01.png" alt="会社会議室での打ち合わせ風景">
                 </div>
             </div>
             <div class="philosophy">
                 <h3 class="company-policy-title tc-em uk-text-bold">経営理念<span class="ruby">Philosophy</span></h3>
                 <ol class="company-policy-body tc-em uk-text-bold">
-                    <li>社員の幸福と成長を支援する。</li>
-                    <li>顧客の満足と信頼を確立する。</li>
-                    <li>社会への持続的な貢献を推進する。</li>
+                    <li class="tc-em">社員の幸福と成長を支援する。</li>
+                    <li class="tc-em">顧客の満足と信頼を確立する。</li>
+                    <li class="tc-em">社会への持続的な貢献を推進する。</li>
                 </ol>
             </div>
         </div>

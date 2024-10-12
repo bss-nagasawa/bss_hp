@@ -24,7 +24,7 @@
 	<?php // icons & favicons (for more: http://www.jonathantneal.com/blog/understand-the-favicon/) 
 	?>
 	<link rel="apple-touch-icon" href="<?php echo get_template_directory_uri(); ?>/library/images/apple-touch-icon.png">
-	<link rel="icon" href="<?php echo get_template_directory_uri(); ?>/favicon.png">
+	<link rel="icon" href="<?php echo theme_image_directory(); ?>/favicon.png">
 	<!--[if IE]>
 			<link rel="shortcut icon" href="<?php echo get_template_directory_uri(); ?>/favicon.ico">
 		<![endif]-->
@@ -47,17 +47,15 @@
 	?>
 	<?php // end analytics 
 	?>
-
 </head>
 
 <body <?php body_class(); ?> itemscope itemtype="http://schema.org/WebPage">
-
-	<header class="header" role="banner" itemscope itemtype="http://schema.org/WPHeader">
+	<header id="" class="header" role="banner" itemscope itemtype="http://schema.org/WPHeader" uk-scrollspy="cls: uk-animation-slide-top; repeat: false">
 
 		<div id="" class="header-content">
 			<div class="content-left">
 				<a href="<?php echo home_url(); ?>" class="header-home-link">
-					<img src="<?php echo theme_image_directory(); ?>/common/logo.png" class="logo-image">
+					<h1><img src="<?php echo theme_image_directory(); ?>/common/logo.png" class="logo-image" alt="<?php echo get_bloginfo('name'); ?>"></h1>
 				</a>
 			</div>
 			<div class="content-right">

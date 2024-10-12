@@ -4,6 +4,8 @@
         <h4 class="content-header-ruby">Sales and staff</h4>
     </div>
     <div class="inner content-inner">
-        <img src="<?php echo theme_image_directory(); ?>/recruit/graph2024.png">
+        <div class="graph-inner">
+            <img src="<?php echo theme_image_directory(); ?>/recruit/graph2024.png" class="BSSの売り上げと社員推移グラフ">
+        </div>
     </div>
 </div><!-- /#recruit-message -->

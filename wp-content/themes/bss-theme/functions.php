@@ -249,12 +249,12 @@ function load_note_posts()
     $output .= '<h3>社長ブログ</h3>';
     $output .= '<div class="pagination uk-flex">';
     if ($page > 1) {
-      $output .= '<a href="#" class="prev-page btn-prev" data-page="' . ($page - 1) . '"></a>';
+      $output .= '<a href="" class="prev-page btn-prev" data-page="' . ($page - 1) . '"></a>';
     }
     // 次のページが存在するかどうかを判断
     $next_page_posts = get_note_posts($page + 1);
     if (!empty($next_page_posts['contents'])) {
-      $output .= '<a href="#" class="next-page btn-next" data-page="' . ($page + 1) . '"></a>';
+      $output .= '<a href="" class="next-page btn-next" data-page="' . ($page + 1) . '"></a>';
     }
     $output .= '</div></div></div>';
   } else {
@@ -418,6 +418,25 @@ function company_coordinates_field_callback()
   $value = get_option('company_coordinates', '');
   echo '<input type="text" id="company_coordinates" name="company_coordinates" value="' . esc_attr($value) . '" class="regular-text">';
 }
+//カスタムフィールドをショートコードで使用できるようにする
+// 住所のショートコードを作成
+function company_address_shortcode() {
+  $address = get_option('company_address', '');
+  return esc_html($address);
+}
+add_shortcode('company_address', 'company_address_shortcode');
+// 電話番号のショートコードを作成
+function company_phone_shortcode() {
+  $phone = get_option('company_phone', '');
+  return esc_html($phone);
+}
+add_shortcode('company_phone', 'company_phone_shortcode');
+// メールアドレスのショートコードを作成
+function company_email_shortcode() {
+  $email = get_option('company_email', '');
+  return esc_html($email);
+}
+add_shortcode('company_email', 'company_email_shortcode');
 
 //googlefont　楷書体
 function enqueue_google_fonts()
@@ -473,3 +492,103 @@ function exclude_category_for_staff_interview($query) {
     }
 }
 add_action('pre_get_posts', 'exclude_category_for_staff_interview');
+
+//FAQのAJAX読み込み
+function load_more_faqs() {
+    $page = isset($_POST['page']) ? intval($_POST['page']) : 1;
+
+    $args = array(
+        'post_type' => 'faq',
+        'posts_per_page' => 3,
+        'paged' => $page,
+        'meta_key' => 'oreder_num',
+        'orderby' => 'meta_value_num',
+        'order' => 'ASC',
+    );
+
+    $faq_query = new WP_Query($args);
+
+    if ($faq_query->have_posts()) {
+        ob_start();
+        while ($faq_query->have_posts()) : $faq_query->the_post(); ?>
+            <li class="faq-item">
+                <a class="faq-title uk-accordion-title" href><h3><span class="faq-icon">Ｑ</span><?php the_title(); ?></h3></a>
+                <div class="faq-content uk-accordion-content uk-flex">
+                    <span class="faq-icon">Ａ</span>
+                    <div><?php the_content(); ?></div>
+                </div>
+            </li>
+        <?php endwhile;
+        wp_reset_postdata();
+        $data = ob_get_clean();
+        wp_send_json_success($data);
+    } else {
+        wp_send_json_error();
+    }
+}
+add_action('wp_ajax_load_more_faqs', 'load_more_faqs');
+add_action('wp_ajax_nopriv_load_more_faqs', 'load_more_faqs');
+
+function set_first_image_as_thumbnail($post_id) {
+    // 投稿タイプを指定
+    $post_type = get_post_type($post_id);
+    $target_post_type = 'staff-blog'; // ここを特定の投稿タイプに変更
+
+    // 投稿タイプが一致し、サムネイルが設定されていない場合
+    if ($post_type == $target_post_type && !has_post_thumbnail($post_id)) {
+        $post = get_post($post_id);
+        $content = $post->post_content;
+
+        // 投稿内容から最初の画像を取得
+        preg_match_all('/<img[^>]+>/i', $content, $matches);
+        if (isset($matches[0][0])) {
+            $first_img = $matches[0][0];
+
+            // 画像URLを取得
+            preg_match('/src="([^"]+)"/i', $first_img, $img_src);
+            if (isset($img_src[1])) {
+                $image_url = $img_src[1];
+
+                // 画像をメディアライブラリに追加
+                $upload_dir = wp_upload_dir();
+                $image_data = file_get_contents($image_url);
+                $filename = basename($image_url);
+                if (wp_mkdir_p($upload_dir['path'])) {
+                    $file = $upload_dir['path'] . '/' . $filename;
+                } else {
+                    $file = $upload_dir['basedir'] . '/' . $filename;
+                }
+                file_put_contents($file, $image_data);
+
+                // メディアライブラリに添付ファイルとして追加
+                $wp_filetype = wp_check_filetype($filename, null);
+                $attachment = array(
+                    'post_mime_type' => $wp_filetype['type'],
+                    'post_title' => sanitize_file_name($filename),
+                    'post_content' => '',
+                    'post_status' => 'inherit'
+                );
+                $attach_id = wp_insert_attachment($attachment, $file, $post_id);
+                require_once(ABSPATH . 'wp-admin/includes/image.php');
+                $attach_data = wp_generate_attachment_metadata($attach_id, $file);
+                wp_update_attachment_metadata($attach_id, $attach_data);
+
+                // サムネイルとして設定
+                set_post_thumbnail($post_id, $attach_id);
+            }
+        }
+    }
+}
+add_action('save_post', 'set_first_image_as_thumbnail');
+
+function move_aioseop_meta_box_to_bottom() {
+  // 一度meta boxを削除
+  remove_meta_box( 'aioseop_meta', 'post', 'normal' );
+
+  // 優先度 'low' で再度追加
+  add_meta_box( 'aioseop_meta', __( 'All in One SEO', 'all-in-one-seo-pack' ), 'aiosp_meta_box', 'post', 'normal', 'low' );
+}
+add_action( 'add_meta_boxes', 'move_aioseop_meta_box_to_bottom' );
+// Contact Form 7送信後のリダイレクト
+
+

@@ -17,6 +17,7 @@
   }
   #main-visual {
     height: unset;
+    background-color: rgba(255, 255, 255, 0.6);
   }
   #main-visual .mv-inner-left {
     width: 60%;
@@ -50,7 +51,7 @@
     padding-top: 0;
     display: flex;
     flex-direction: column;
-    padding-left: 0px;
+    padding-left: 0;
     padding: 2vw 5vw;
     background: linear-gradient(to right, #0b60b4 0%, #54a2f0 100%);
     align-items: center;
@@ -83,6 +84,12 @@
   }
   .footer-content .footer-content-wrap .container-access {
     width: unset;
+  }
+  .custom-post-item-interview .custom-post-thumbnail {
+    height: 200px;
+  }
+  #staff-blog .custom-post-item-blog .custom-post-thumbnail {
+    height: 155px;
   }
 }
 /* 画面幅が800px以下の場合のスタイル */
@@ -122,7 +129,8 @@
   .mv-left-content .btn-sc {
     margin-top: 1em;
   }
-  #news .news-grid {
+  #news .news-grid,
+  .news-archive .news-grid {
     grid-template-columns: repeat(1, 1fr);
     gap: 10px;
   }
@@ -148,7 +156,7 @@
     padding-bottom: 20px;
   }
   .content-body.content-about {
-    padding-bottom: 40px;
+    padding: 0 3vw 40px 3vw;
   }
   .content-features-lists li {
     flex-direction: column-reverse;
@@ -432,6 +440,38 @@
     margin-right: 1em !important;
     margin-top: 1em !important;
   }
+  .content-banner .banner-item {
+    width: calc(100% / 2);
+  }
+  .content-banner .banner-comment {
+    font-size: 12px;
+  }
+  #home-content #feature-bss {
+    background-color: rgba(255, 255, 255, 0.6);
+  }
+  #home-blog.home-blog-content {
+    padding-bottom: 10px;
+    margin-top: 40px;
+  }
+  #home-content #news .round-bg-container {
+    padding: 40px 0 80px 0;
+  }
+  #company-message .inner {
+    background-color: rgba(255, 255, 255, 0.6);
+  }
+  .content-inner .post-archive-list {
+    width: calc(100% / 2 - 20px);
+  }
+  .post-archive-list .archive-list-image {
+    height: 120px;
+  }
+  .staff-interview-post-title {
+    font-size: 20px;
+    font-weight: bold;
+  }
+  .custom-post-item-interview .custom-post-thumbnail {
+    height: 400px;
+  }
 }
 
 /* 画面幅が640px以下の場合のスタイル */
@@ -460,7 +500,7 @@
     background-image: url(../images/common/bg640.png);
   }
   .mv-btn-wrap-sp {
-    margin-bottom: 40px;
+    padding-bottom: 40px;
   }
   .mv-btn-wrap-sp .btn {
     width: 65vw;
@@ -539,6 +579,9 @@
   }
   #company-history.content-history .tablepress-id-7 .column-2 {
     font-size: 12px;
+  }
+  .custom-post-item-interview .custom-post-thumbnail {
+    height: 240px;
   }
 }
 @media screen and (max-width: 380px) {
