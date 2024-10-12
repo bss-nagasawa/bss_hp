@@ -4,8 +4,8 @@ $group_field = get_field('home_mv');
 <div class="mv-inner">
     <div class="mv-inner-left">
         <div class="mv-left-content">
-            <h2 class="mv-headline tc-em"><?php echo $group_field['mv-headline'];?></h2>
-            <h3 class="mv-description"><?php echo $group_field['mv-description'];?></h3>
+            <h1 class="mv-headline tc-em"><?php echo $group_field['mv-headline'];?></h1>
+            <h2 class="mv-description"><?php echo $group_field['mv-description'];?></h2>
             <div class="uk-flex mv-btn-wrap">
                 <a href="<?php echo get_home_url();?>/recruit" class="btn btn-mc tc-white">採用情報</a>
                 <a href="<?php echo get_home_url();?>/recruit-form" class="btn btn-sc tc-white">エントリー</a>
