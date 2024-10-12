@@ -16,7 +16,7 @@
                 </div>
             </div>
             <div class="recruit-message-image">
-                <img src="<?php echo theme_image_directory(); ?>/recruit/reason.png">
+                <img src="<?php echo theme_image_directory(); ?>/recruit/reason.png" class="会社ロゴ看板">
             </div>
         </div>
     </div>

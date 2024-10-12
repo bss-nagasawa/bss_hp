@@ -1,7 +1,7 @@
 <div class="footer-content-wrap">
     <div class="uk-flex uk-flex-wrap footer-access-wrap uk-margin-small-bottom">
         <div class="container-logo">
-            <img src="<?php echo theme_image_directory(); ?>/common/logo.png">
+            <img src="<?php echo theme_image_directory(); ?>/common/logo.png" alt="<?php bloginfo('name');?>">
         </div>
         <div class="container-access">
             <p>
@@ -11,7 +11,7 @@
             <p><span>URL：<a href="<?php echo home_url(); ?>"><?php echo home_url(); ?></a></span></p>
         </div>
         <div class="container-pmark">
-            <img src="<?php echo theme_image_directory(); ?>/pmark1.png">
+            <img src="<?php echo theme_image_directory(); ?>/pmark1.png" alt="Pマークロゴ">
         </div>
     </div>
     <div class="uk-flex uk-flex-center">

@@ -5,7 +5,7 @@
     </div>
     <div class="inner content-inner">
         <div class="graph-inner">
-            <img src="<?php echo theme_image_directory(); ?>/recruit/graph2024.png">
+            <img src="<?php echo theme_image_directory(); ?>/recruit/graph2024.png" class="BSSの売り上げと社員推移グラフ">
         </div>
     </div>
 </div><!-- /#recruit-message -->
