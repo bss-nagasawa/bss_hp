@@ -9,7 +9,7 @@ $group_field = get_field('message_container');
         </div>
         <div class="message-container uk-flex uk-flex-wrap uk-item-start">
             <div class="message-image">
-                <img src="<?php echo theme_image_directory(); ?>/company/president01.png">
+                <img src="<?php echo theme_image_directory(); ?>/company/president01.png" alt="代表メッセージ 田中誠">
             </div>
             <div class="message-body">
                 <p>

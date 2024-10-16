@@ -17,7 +17,7 @@
             </div>
             <div class="lists-image uk-flex uk-flex-right">
                 <div class="image-wrap">
-                    <img src="<?php echo theme_image_directory(); ?>/home/feature01.png">
+                    <img src="<?php echo theme_image_directory(); ?>/home/feature01.png" alt="オフィス相談風景">
                 </div>
             </div>
         </li>
@@ -34,7 +34,7 @@
             </div>
             <div class="lists-image uk-flex">
                 <div class="image-wrap">
-                    <img src="<?php echo theme_image_directory(); ?>/home/feature02.png">
+                    <img src="<?php echo theme_image_directory(); ?>/home/feature02.png" alt="オフィスでの営業作業風景">
                 </div>
             </div>
         </li>
@@ -52,7 +52,7 @@
             </div>
             <div class="lists-image uk-flex uk-flex-right">
                 <div class="image-wrap">
-                    <img src="<?php echo theme_image_directory(); ?>/home/feature03.png">
+                    <img src="<?php echo theme_image_directory(); ?>/home/feature03.png" alt="オフィス外観">
                 </div>
             </div>
         </li>
@@ -71,7 +71,7 @@
             </div>
             <div class="lists-image uk-flex uk-flex">
                 <div class="image-wrap">
-                    <img src="<?php echo theme_image_directory(); ?>/home/feature04.png">
+                    <img src="<?php echo theme_image_directory(); ?>/home/feature04.png" alt="オフィス執務室">
                 </div>
             </div>
         </li>

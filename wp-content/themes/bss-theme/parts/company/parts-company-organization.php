@@ -5,7 +5,7 @@
     </div>
 
     <div class="inner content-inner">
-        <img src="<?php echo theme_image_directory(); ?>/company/organization-chart.png" class="pc">
-        <img src="<?php echo theme_image_directory(); ?>/company/organization-chart-sp.png" class="sp">
+        <img src="<?php echo theme_image_directory(); ?>/company/organization-chart.png" class="pc" alt="BSS組織図">
+        <img src="<?php echo theme_image_directory(); ?>/company/organization-chart-sp.png" class="sp" alt="BSS組織図">
     </div>
 </div><!-- /#company-organization -->

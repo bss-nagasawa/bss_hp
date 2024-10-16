@@ -20,7 +20,7 @@
 							</h1>
 						<?php endif;?>
 						<div class="post-body">
-							<?php if(!get_post_type() == 'staff-blog') :?>
+							<?php if(get_post_type() != 'staff-blog') :?>
 								<?php if (has_post_thumbnail()) {
 									$thumbnail_id = get_post_thumbnail_id();
 									$eye_img = wp_get_attachment_image_src($thumbnail_id, 'full');

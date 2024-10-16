@@ -7,7 +7,7 @@
                     <p class="company-policy-body tc-em uk-text-bold">チャレンジ精神を持ちながら、<br>誠実に生きる。</p>
                 </div>
                 <div class="policy-image">
-                    <img src="<?php echo theme_image_directory(); ?>/company/company01.png">
+                    <img src="<?php echo theme_image_directory(); ?>/company/company01.png" alt="会社会議室での打ち合わせ風景">
                 </div>
             </div>
             <div class="philosophy">

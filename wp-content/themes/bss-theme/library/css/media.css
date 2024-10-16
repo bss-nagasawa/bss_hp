@@ -51,7 +51,7 @@
     padding-top: 0;
     display: flex;
     flex-direction: column;
-    padding-left: 0px;
+    padding-left: 0;
     padding: 2vw 5vw;
     background: linear-gradient(to right, #0b60b4 0%, #54a2f0 100%);
     align-items: center;
@@ -84,6 +84,12 @@
   }
   .footer-content .footer-content-wrap .container-access {
     width: unset;
+  }
+  .custom-post-item-interview .custom-post-thumbnail {
+    height: 200px;
+  }
+  #staff-blog .custom-post-item-blog .custom-post-thumbnail {
+    height: 155px;
   }
 }
 /* 画面幅が800px以下の場合のスタイル */
@@ -453,6 +459,19 @@
   #company-message .inner {
     background-color: rgba(255, 255, 255, 0.6);
   }
+  .content-inner .post-archive-list {
+    width: calc(100% / 2 - 20px);
+  }
+  .post-archive-list .archive-list-image {
+    height: 120px;
+  }
+  .staff-interview-post-title {
+    font-size: 20px;
+    font-weight: bold;
+  }
+  .custom-post-item-interview .custom-post-thumbnail {
+    height: 400px;
+  }
 }
 
 /* 画面幅が640px以下の場合のスタイル */
@@ -560,6 +579,9 @@
   }
   #company-history.content-history .tablepress-id-7 .column-2 {
     font-size: 12px;
+  }
+  .custom-post-item-interview .custom-post-thumbnail {
+    height: 240px;
   }
 }
 @media screen and (max-width: 380px) {

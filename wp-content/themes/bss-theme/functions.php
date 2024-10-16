@@ -589,3 +589,6 @@ function move_aioseop_meta_box_to_bottom() {
   add_meta_box( 'aioseop_meta', __( 'All in One SEO', 'all-in-one-seo-pack' ), 'aiosp_meta_box', 'post', 'normal', 'low' );
 }
 add_action( 'add_meta_boxes', 'move_aioseop_meta_box_to_bottom' );
+// Contact Form 7送信後のリダイレクト
+
+
